@@ -1,0 +1,22 @@
+# Environment variables (SECURITY RISK - NEVER COMMIT)
+.env
+.env.local
+
+# Virtual Environment
+.venv/
+env/
+venv/
+
+# Python Cache & Compiled Files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ADK & Local Dev Logs
+.adk/
+*.log
+
+# IDE & OS Files
+.vscode/
+.idea/
+.DS_Store

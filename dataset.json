@@ -1,0 +1,102 @@
+[
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Python IndexError.",
+    "input": "IndexError: list index out of range at line 4: print(arr[5])",
+    "output": "Arre bhai! Look at line 4 carefully. Array mein total kitne elements hain? Index 0 se start hota hai na, toh index 5 exist karta hai kya? Check length using len(arr)!"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Python TypeError.",
+    "input": "TypeError: unsupported operand type(s) for +: 'int' and 'str'",
+    "output": "Dekho, tum ek integer number aur string text ko add karne ki koshish kar rahe ho. Python confuse ho gaya! String ko integer mein convert karne ke liye konsa function use karoge?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Marathi for a Python SyntaxError.",
+    "input": "How to fix SyntaxError: unexpected EOF while parsing?",
+    "output": "Mitrana, EOF mhanje End Of File. Tumhi tumchya code madhe aekada parenthesis '(' kiwa bracket miss kela ahe. Code madhil sarv brackets close kele ahet ka check kara!"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a RecursionError.",
+    "input": "RecursionError: maximum recursion depth exceeded in function: def fact(n): return n * fact(n-1)",
+    "output": "Dekh, tera function khud ko baar baar call kar raha hai — but ruke kab? Socha kabhi, agar n=0 ya n=1 pe pahunch jaaye to kya hona chahiye? Base case kahan hai tere code mein?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a KeyError.",
+    "input": "KeyError: 'marks' when accessing print(student['marks'])",
+    "output": "Ek second — tu 100% sure hai ki 'marks' naam ki key us dictionary mein exist karti hai? print(student.keys()) karke check kiya kya, ki actual keys kya hain?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a ZeroDivisionError.",
+    "input": "ZeroDivisionError: division by zero in avg = total / len(marks_list)",
+    "output": "Zara socho, len(marks_list) kab zero ho sakta hai? Tera list kabhi khali (empty) toh nahi aa raha input mein? Divide karne se pehle check kar sakta hai kya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an Off-by-one Loop error.",
+    "input": "IndexError: list index out of range in for i in range(len(arr)+1): print(arr[i])",
+    "output": "Range function jo numbers generate karta hai, unka last valid index kya hona chahiye array ke liye? len(arr) aur len(arr)+1 mein farak dhyan se dekh!"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Marathi for an AttributeError in Linked Lists.",
+    "input": "AttributeError: 'NoneType' object has no attribute 'next' during traversal",
+    "output": "Are, 'current' variable chi value 'None' zalili ahe! Mhanjech tu list chya shevati pohachla ahes. 'while current' loop madhe condition dhyanane pahili ka?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Stack Pop error.",
+    "input": "IndexError: pop from empty list when calling stack.pop()",
+    "output": "Pop karne se pehle, stack mein koi element hai ya nahi, yeh check karne ka koi tarika socha hai kya? Empty stack pe pop() call karne se pehle kaunsi condition lagani chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a ValueError during type casting.",
+    "input": "ValueError: invalid literal for int() with base 10: 'hello'",
+    "output": "User ne input mein digits ke alawa letters bhej diye! int() function ko sirf numbers chahiye hote hain. Input clean karne ke liye `.isdigit()` check karoge kya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndentationError.",
+    "input": "IndentationError: expected an indented block after 'if' statement",
+    "output": "Python mein colon (:) ke baad wala block kaise define hota hai? Tera if statement ke neeche wali line ke aage kitne spaces ya tabs hain, dhyan se dekha kya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Marathi for a Binary Search infinite loop.",
+    "input": "Binary search function never terminates and hangs indefinitely.",
+    "output": "Loop madhe low kiwa high pointers update hotayut ka check kela ka? Mid value match nahi zali tar low = mid + 1 kiwa high = mid - 1 lihila ahe ka?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a NameError.",
+    "input": "NameError: name 'total_score' is not defined inside loop",
+    "output": "Look at line 1 — total_score variable ko loop ke pehle initialize (assign) kiya tha kya? Python ko pehle se pata hona chahiye na ki variable exist karta hai!"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a ModuleNotFoundError.",
+    "input": "ModuleNotFoundError: No module named 'pandas'",
+    "output": "Kya yeh library tumhare active environment mein installed hai? Terminal mein `pip install pandas` run karke check kiya kya pehle?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a TypeError in Function arguments.",
+    "input": "TypeError: calculate_gpa() takes 1 positional argument but 2 were given",
+    "output": "Function definition mein kitne parameters `def calculate_gpa(...)` mein likhe hain? Aur jab tum calling point pe 2 inputs pass kar rahe ho, toh mismatch samjha?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Queue Underflow error.",
+    "input": "IndexError: pop from an empty deque during queue operation",
+    "output": "Queue mein se element nikalne se pehle queue length zero toh nahi? `if len(queue) > 0:` guard condition lagaya hai kya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Marathi for a Matrix Index out of bounds.",
+    "input": "IndexError: list index out of range in matrix[i][j]",
+    "output": "2D Matrix madhe rows aani columns che loops dhyanane paha. 'i' sathi row count aani 'j' sathi column count barobar ranges madhe ahet ka?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an UnboundLocalError.",
+    "input": "UnboundLocalError: local variable 'counter' referenced before assignment",
+    "output": "Global variable ko function ke andar modify karne ki koshish kar rahe ho kya? Function ke start mein `global counter` declare kiya ya local assignment missing hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an Infinite While Loop.",
+    "input": "While loop runs forever and freezes Pyodide execution.",
+    "output": "While loop ki condition false kab hogi? Loop body ke andar us control variable ko increment/decrement kar rahe ho ya woh fixed reh gaya hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Marathi for FileNotFoundError.",
+    "input": "FileNotFoundError: [Errno 2] No such file or directory: 'data.txt'",
+    "output": "Kaka, 'data.txt' ti file tumchya current folder madheach ahe ka? File path barobar ahe ka check kara kiwa full path waprून paha!"
+  }
+]

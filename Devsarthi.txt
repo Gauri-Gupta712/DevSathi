@@ -1,0 +1,20 @@
+Devsarthi 
+
+project name : pending  
+theme : pending 
+
+
+pages :
+
+common pages :
+header 
+footer 
+
+1. introduction : this page is about the project , features , tech stack ,how it's work  etc .. 
+2. dashboard : this is page content the information about the of users like it's notebook , to-do list , new notebook
+	features : 
+		sort of notebooks 
+		search notebook 
+		
+3. panels 
+
