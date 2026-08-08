@@ -34,3 +34,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+🔴 Terminal 1: Backend Server (Python FastAPI)
+1. Make sure you are in the main project folder (DevSathi):
+    a.  cd c:\Users\admin\DevSathi
+    b.  python -m uvicorn api_server:app --port 8000 --reload
+
+2. Terminal 2: Frontend App (Next.js)
+    a. cd c:\Users\admin\DevSathi\devsarthi-frontend
+    b. npm run dev
+
+Before opening the browser, check if Ollama is running in your Windows system tray.
+
+If you ever need to test if your backend is working, open a browser tab to:
+👉 http://localhost:8000/health
+It will display: {"status": "DevSarthi backend (Ollama) is running!"}.
