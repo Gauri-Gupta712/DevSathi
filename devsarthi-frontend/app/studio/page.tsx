@@ -1,26 +1,13 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import {
-  Play,
-  Upload,
-  Link as LinkIcon,
-  MessageSquare,
-  FileCode2,
-  FolderOpen,
-  Settings,
-  Send,
-  Loader2,
-  ChevronRight,
-  ChevronLeft,
-  X,
-  Video as Youtube
-} from 'lucide-react';
-import Header from '../components/Header';
-
-// Dynamically import Monaco Editor to avoid SSR issues
-const MonacoEditor = dynamic(() => import('@monaco-editor/react'), { ssr: false });
+import React, { useState, Suspense } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import StudioHeader from '../components/studio/StudioHeader';
+import SourcesPanel from '../components/studio/SourcesPanel';
+import LearningWorkspace, { WorkspaceMode } from '../components/studio/LearningWorkspace';
+import TutorPanel from '../components/studio/TutorPanel';
+import NotesDrawer from '../components/studio/NotesDrawer';
+import { Edit3, Dumbbell, Settings } from 'lucide-react';
 
 type Message = {
   id: string;
@@ -28,82 +15,137 @@ type Message = {
   content: string;
 };
 
-type FileItem = {
+export type SourceType = "code" | "image" | "pdf" | "document" | "text" | "video" | "youtube" | "unknown";
+
+export type FileItem = {
   name: string;
+  type: SourceType;
   language: string;
   content: string;
 };
 
 export default function StudioPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#FDF9EF] flex items-center justify-center">Loading Studio...</div>}>
+      <StudioContent />
+    </Suspense>
+  );
+}
+
+function StudioContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const subject = searchParams?.get('subject') || '';
+  const topic = searchParams?.get('topic') || '';
+
+  const hasSession = Boolean(subject && topic);
+
+  // Existing state logic
   const [code, setCode] = useState<string>('// Welcome to DevSarthi Studio\n// Write your code here...\n\ndef bubble_sort(arr):\n    n = len(arr)\n    for i in range(n):\n        for j in range(0, n-i-1):\n            if arr[j] > arr[j+1]:\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n    return arr');
   const [language, setLanguage] = useState<string>('python');
-  const [messages, setMessages] = useState<Message[]>([
-    { id: '1', role: 'assistant', content: 'Namaste! Main DevSarthi hoon. Kaise help karu main aaj aapki coding mein?' }
-  ]);
+
+  const initialMessages: Message[] = hasSession ? [
+    { id: '1', role: 'assistant', content: 'Hello! I am DevSarthi. How can I help you with your coding today?' }
+  ] : [
+    { id: '1', role: 'assistant', content: 'Your Socratic learning guide.\n\nAdd a source or start a learning activity, and I\'ll help you understand it step by step.' }
+  ];
+
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [chatInput, setChatInput] = useState('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-  
-  const [files, setFiles] = useState<FileItem[]>([
-    { name: 'main.py', language: 'python', content: 'def main():\n    print("Hello DevSarthi")' },
-    { name: 'utils.js', language: 'javascript', content: 'export const add = (a, b) => a + b;' }
-  ]);
-  const [activeFile, setActiveFile] = useState<string>('main.py');
-  
-  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const initialFiles: FileItem[] = hasSession ? [
+    { name: 'main.py', type: 'code', language: 'python', content: 'def main():\n    print("Hello DevSarthi")' },
+    { name: 'utils.js', type: 'code', language: 'javascript', content: 'export const add = (a, b) => a + b;' }
+  ] : [];
+
+  const [files, setFiles] = useState<FileItem[]>(initialFiles);
+  const [activeFile, setActiveFile] = useState<string>(hasSession ? 'main.py' : '');
+
+  const [sourcesOpen, setSourcesOpen] = useState(true);
+  const [tutorOpen, setTutorOpen] = useState(true);
+  const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>(hasSession ? 'entry' : 'welcome');
+  const [notesOpen, setNotesOpen] = useState(false);
+
+  type Activity = 'read' | 'practice' | 'code' | null;
+  const [sessionActivity, setSessionActivity] = useState<Activity>(null);
+
+  React.useEffect(() => {
+    setSessionActivity(null);
+  }, [subject, topic]);
+
+  const handleActivitySelect = (activity: Activity) => {
+    setSessionActivity(activity);
+    if (activity === 'read') setWorkspaceMode('viewer');
+    else if (activity === 'practice') setWorkspaceMode('practice');
+    else if (activity === 'code') setWorkspaceMode('editor');
   };
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+  // Existing Handlers
+  const handleAnalyze = async (context?: { snippet?: string; fileName?: string }) => {
+    const fileName = context?.fileName || activeFile || 'your code';
+    const snippet = context?.snippet;
 
-  const handleAnalyze = async () => {
-    if (!code.trim()) return;
-    
-    const userMsg: Message = { id: Date.now().toString(), role: 'user', content: 'Please analyze my code.' };
+    const userPrompt = snippet
+      ? `Can you review these selected lines in ${fileName}?\n\`\`\`${language}\n${snippet}\n\`\`\``
+      : `Can you review my code in ${fileName}?`;
+
+    const userMsg: Message = { id: Date.now().toString(), role: 'user', content: userPrompt };
     setMessages(prev => [...prev, userMsg]);
     setIsAnalyzing(true);
-    
+    if (!tutorOpen) setTutorOpen(true);
+
     try {
       const response = await fetch('http://localhost:8000/analyze', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ code, language }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          code: snippet || code,
+          language,
+          prompt: userPrompt,
+          fileName
+        }),
       });
-      
+
+      if (!response.ok) throw new Error('Backend offline');
       const data = await response.json();
-      
-      setMessages(prev => [...prev, { 
-        id: (Date.now() + 1).toString(), 
-        role: 'assistant', 
-        content: data.message || 'Analysis complete. Kya aapko isme koi specific doubt hai?' 
+
+      setMessages(prev => [...prev, {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: data.response || data.message || 'Analysis complete. Do you have any specific doubts?'
       }]);
-    } catch (error) {
-      setMessages(prev => [...prev, { 
-        id: (Date.now() + 1).toString(), 
-        role: 'assistant', 
-        content: 'Oops, backend se connect karne mein issue aaya. Please make sure the server is running on port 8000.' 
-      }]);
-    } finally {
-      setIsAnalyzing(false);
+    } catch {
+      // Graceful local Socratic fallback when FastAPI server is offline
+      setTimeout(() => {
+        const fallbackHint = snippet
+          ? `Looking closely at your selected snippet in **${fileName}**:\n\`\`\`${language}\n${snippet}\n\`\`\`\nWhat output do you expect when this condition evaluates? Does the syntax match Python's indentation rules?`
+          : `I'm analyzing **${fileName}**. Notice how your control flow branches execute. Walk me through the first condition—what happens if the input is negative or zero?`;
+
+        setMessages(prev => [...prev, {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: fallbackHint
+        }]);
+        setIsAnalyzing(false);
+      }, 700);
+      return;
     }
+
+    setIsAnalyzing(false);
   };
 
   const handleSendMessage = async (e?: React.FormEvent) => {
     e?.preventDefault();
     if (!chatInput.trim() || isAnalyzing) return;
-    
+
     const userPrompt = chatInput;
     const userMsg: Message = { id: Date.now().toString(), role: 'user', content: userPrompt };
     setMessages(prev => [...prev, userMsg]);
     setChatInput('');
     setIsAnalyzing(true);
-    
+
     try {
       const response = await fetch('http://localhost:8000/analyze', {
         method: 'POST',
@@ -112,19 +154,19 @@ export default function StudioPage() {
         },
         body: JSON.stringify({ code, prompt: userPrompt, language }),
       });
-      
+
       const data = await response.json();
-      
-      setMessages(prev => [...prev, { 
-        id: (Date.now() + 1).toString(), 
-        role: 'assistant', 
-        content: data.response || data.message || 'Analysis complete. Kya aapko isme koi specific doubt hai?' 
+
+      setMessages(prev => [...prev, {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: data.response || data.message || 'Analysis complete. Do you have any specific doubts?'
       }]);
     } catch (error) {
-      setMessages(prev => [...prev, { 
-        id: (Date.now() + 1).toString(), 
-        role: 'assistant', 
-        content: 'Backend se connect karne mein issue aaya. Make sure FastAPI server (port 8000) and Ollama are running.' 
+      setMessages(prev => [...prev, {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: 'Backend se connect karne mein issue aaya. Make sure FastAPI server (port 8000) and Ollama are running.'
       }]);
     } finally {
       setIsAnalyzing(false);
@@ -133,233 +175,264 @@ export default function StudioPage() {
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const content = e.target?.result as string;
-        const newFile = { name: file.name, language: file.name.split('.').pop() || 'text', content };
-        setFiles(prev => [...prev, newFile]);
-        setActiveFile(file.name);
-        setCode(content);
-      };
-      reader.readAsText(file);
+    if (!file) return;
+
+    const ext = file.name.split('.').pop()?.toLowerCase() || '';
+    let sourceType: SourceType = 'unknown';
+
+    const codeExtensions = [
+      'py', 'js', 'jsx', 'ts', 'tsx', 'html', 'css', 'json',
+      'java', 'c', 'cpp', 'cs', 'go', 'rs', 'php', 'rb', 'sql', 'sh'
+    ];
+
+    if (codeExtensions.includes(ext)) {
+      sourceType = 'code';
+    } else if (file.type.startsWith('image/') || ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'].includes(ext)) {
+      sourceType = 'image';
+    } else if (file.type === 'application/pdf' || ext === 'pdf') {
+      sourceType = 'pdf';
+    } else if (file.type.startsWith('video/') || ['mp4', 'webm', 'mov', 'mkv'].includes(ext)) {
+      sourceType = 'video';
+    } else if (['doc', 'docx', 'csv', 'md'].includes(ext)) {
+      sourceType = 'document';
+    } else if (file.type.startsWith('text/') || ext === 'txt') {
+      sourceType = 'text';
+    } else {
+      sourceType = 'code';
     }
+
+    // For media:
+    if (['image', 'pdf', 'video'].includes(sourceType)) {
+      const objectUrl = URL.createObjectURL(file);
+      const newFile: FileItem = {
+        name: file.name,
+        type: sourceType,
+        language: ext || 'binary',
+        content: objectUrl
+      };
+
+      setFiles(prev => [...prev, newFile]);
+      setActiveFile(file.name);
+      setCode(objectUrl);
+      setWorkspaceMode('viewer');
+      return;
+    }
+
+    // For plain text / code files, read the actual text content
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const content = event.target?.result as string;
+      const newFile: FileItem = {
+        name: file.name,
+        type: sourceType,
+        language: ext || 'text',
+        content
+      };
+      setFiles(prev => [...prev, newFile]);
+      setActiveFile(file.name);
+      setCode(content);
+      setWorkspaceMode(sourceType === 'code' ? 'editor' : 'viewer');
+    };
+    reader.readAsText(file);
+  };
+
+  const handleStartSession = (newSubject: string, newTopic: string) => {
+    const params = new URLSearchParams(searchParams?.toString() || '');
+    params.set('subject', newSubject);
+    params.set('topic', newTopic);
+    router.push(`/studio?${params.toString()}`);
   };
 
   const handleYoutubeLink = () => {
     const url = prompt("Enter YouTube tutorial link:");
     if (url) {
-      setMessages(prev => [...prev, { 
-        id: Date.now().toString(), 
-        role: 'user', 
-        content: `I'm learning from this video: ${url}` 
+      const newFile: FileItem = {
+        name: `YouTube Video ${files.length + 1}`,
+        type: 'youtube',
+        language: 'video',
+        content: url
+      };
+      setFiles(prev => [...prev, newFile]);
+      setActiveFile(newFile.name);
+      setCode(url);
+      setWorkspaceMode('viewer');
+      setSessionActivity('read');
+
+      if (sessionActivity) {
+        if (sessionActivity === 'read') setWorkspaceMode('viewer');
+        else if (sessionActivity === 'practice') setWorkspaceMode('practice');
+        else if (sessionActivity === 'code') setWorkspaceMode('editor');
+      } else {
+        setWorkspaceMode('entry');
+      }
+
+      setMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        role: 'user',
+        content: `I'm learning from this video: ${url}`
       }]);
       setTimeout(() => {
-        setMessages(prev => [...prev, { 
-          id: (Date.now() + 1).toString(), 
-          role: 'assistant', 
-          content: 'Great! Video context has been loaded. We can discuss the concepts from the tutorial.' 
+        setMessages(prev => [...prev, {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: 'Great! Video context has been loaded. We can discuss the concepts from the tutorial.'
         }]);
       }, 1000);
+      if (!tutorOpen) setTutorOpen(true);
     }
   };
 
+  const handleFileSelect = (fileName: string) => {
+    const selected = files.find(f => f.name === fileName);
+    if (!selected) return;
+
+    setActiveFile(selected.name);
+    setCode(selected.content);
+
+    const lang = selected.language === 'py'
+      ? 'python'
+      : selected.language === 'js'
+        ? 'javascript'
+        : selected.language === 'ts'
+          ? 'typescript'
+          : selected.language || 'text';
+    setLanguage(lang);
+
+    // Keep sessionActivity AND workspaceMode in sync:
+    if (selected.type === 'code') {
+      if (sessionActivity === 'read') {
+        setWorkspaceMode('viewer');
+      } else if (sessionActivity === 'practice') {
+        setWorkspaceMode('practice');
+      } else {
+        setWorkspaceMode('editor');
+        setSessionActivity('code');
+      }
+    } else {
+      // Media, PDFs, YouTube, and Docs switch to Read (viewer)
+      setWorkspaceMode('viewer');
+      setSessionActivity('read');
+    }
+  };
+
+  const handleDeleteSource = (fileName: string) => {
+    const updatedFiles = files.filter(f => f.name !== fileName);
+    setFiles(updatedFiles);
+
+    // If deleting the active file, switch to the first available source or clear
+    if (activeFile === fileName) {
+      if (updatedFiles.length > 0) {
+        handleFileSelect(updatedFiles[0].name);
+      } else {
+        setActiveFile('');
+        setCode('');
+        setWorkspaceMode('welcome');
+      }
+    }
+  };
+
+  const activeFileObj = files.find(f => f.name === activeFile);
+  const activeFileType = activeFileObj?.type || 'unknown';
+
   return (
-    <div className="flex flex-col min-h-screen bg-[#F4F0E6] font-sans text-[#153326]">
-      <Header />
-      
-      {/* Studio Header Bar */}
-      <div className="flex items-center justify-between px-6 py-3 border-b border-[#E2DDCF] bg-[#F4F0E6] mt-16">
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <span className="font-serif font-bold text-lg text-[#1E4D3B]">DevSarthi Studio</span>
-            <span className="px-2 py-0.5 rounded-full bg-[#E4DFCE] text-[#3A5A4C] text-xs font-medium border border-[#E2DDCF]">Beta</span>
-          </div>
-        </div>
-        
-        <div className="flex items-center gap-3">
-          <select 
-            value={language}
-            onChange={(e) => setLanguage(e.target.value)}
-            className="bg-white border border-[#E2DDCF] text-[#153326] text-sm rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#1E4D3B]/50"
-          >
-            <option value="python">Python</option>
-            <option value="javascript">JavaScript</option>
-            <option value="typescript">TypeScript</option>
-            <option value="java">Java</option>
-            <option value="cpp">C++</option>
-          </select>
-          
-          <button 
-            onClick={handleAnalyze}
-            disabled={isAnalyzing}
-            className="flex items-center gap-2 bg-[#1E4D3B] hover:bg-[#153326] text-white px-4 py-1.5 rounded-md font-medium text-sm transition-colors disabled:opacity-50 shadow-sm"
-          >
-            {isAnalyzing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Play className="w-4 h-4" />}
-            Analyze Code
-          </button>
-        </div>
-      </div>
+    <div className="flex flex-col min-h-screen bg-[#FDF9EF] font-body-md text-[#1c1c16] overflow-hidden">
+      <StudioHeader
+        subject={subject}
+        topic={topic}
+        activity={sessionActivity || 'code'}
+        onActivityChange={handleActivitySelect}
+      />
 
-      {/* Main 3-Panel Layout */}
-      <div className="flex-1 flex overflow-hidden">
-        
-        {/* Sidebar (Left Panel) */}
-        {sidebarOpen && (
-          <div className="w-64 border-r border-[#E2DDCF] bg-[#FAF7EE] flex flex-col shrink-0">
-            <div className="p-4 border-b border-[#E2DDCF] flex justify-between items-center bg-[#E4DFCE]">
-              <h3 className="font-serif font-bold text-[#153326] flex items-center gap-2">
-                <FolderOpen className="w-4 h-4 text-[#1E4D3B]" />
-                Explorer
-              </h3>
-            </div>
-            
-            <div className="flex-1 overflow-y-auto p-2">
-              <div className="text-xs font-semibold text-[#6A887B] uppercase tracking-wider mb-2 px-2 mt-2">Open Files</div>
-              {files.map(f => (
-                <div 
-                  key={f.name}
-                  onClick={() => {
-                    setActiveFile(f.name);
-                    setCode(f.content);
-                  }}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-md cursor-pointer text-sm mb-1 transition-colors ${activeFile === f.name ? 'bg-[#1E4D3B] text-white font-medium' : 'text-[#3A5A4C] hover:bg-[#E8E2D4]'}`}
-                >
-                  <FileCode2 className="w-4 h-4" />
-                  {f.name}
-                </div>
-              ))}
-            </div>
-            
-            <div className="p-4 border-t border-[#E2DDCF] space-y-3 bg-[#FAF7EE]">
-              <div className="text-xs font-semibold text-[#6A887B] uppercase tracking-wider mb-2">Tools</div>
-              
-              <label className="flex items-center gap-2 w-full px-3 py-2 text-sm text-[#3A5A4C] bg-[#E8E2D4] rounded-md hover:bg-[#E4DFCE] cursor-pointer transition-colors border border-transparent hover:border-[#E2DDCF]">
-                <Upload className="w-4 h-4 text-[#1E4D3B]" />
-                Upload File
-                <input type="file" className="hidden" onChange={handleFileUpload} />
-              </label>
-              
-              <button onClick={handleYoutubeLink} className="flex items-center gap-2 w-full px-3 py-2 text-sm text-[#3A5A4C] bg-[#E8E2D4] rounded-md hover:bg-[#E4DFCE] transition-colors border border-transparent hover:border-[#E2DDCF]">
-                <Youtube className="w-4 h-4 text-red-500" />
-                Add YouTube Link
-              </button>
-            </div>
-          </div>
-        )}
+      {/* Main Content Area (3-Panel Architecture) */}
+      <main
+        className="mt-16 flex-1 grid h-[calc(100vh-4rem)] p-4 gap-4 overflow-hidden relative"
+        style={{
+          gridTemplateColumns: `${sourcesOpen ? '280px' : '48px'} minmax(400px, 1fr) ${tutorOpen ? '340px' : '0px'}`
+        }}
+      >
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 pointer-events-none opacity-5" style={{ backgroundImage: 'radial-gradient(#013626 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
 
-        {/* Sidebar Toggle */}
-        <div className="bg-[#E4DFCE] border-r border-[#E2DDCF] w-6 flex flex-col items-center py-2 shrink-0">
-          <button 
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="text-[#6A887B] hover:text-[#1E4D3B]"
-          >
-            {sidebarOpen ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
-          </button>
-        </div>
+        {/* Left Panel: Sources */}
+        <SourcesPanel
+          subject={subject}
+          topic={topic}
+          isOpen={sourcesOpen}
+          setIsOpen={setSourcesOpen}
+          files={files}
+          activeFile={activeFile}
+          onFileSelect={handleFileSelect}
+          onFileUpload={handleFileUpload}
+          onYoutubeLink={handleYoutubeLink}
+          onDeleteSource={handleDeleteSource}
+        />
 
-        {/* Monaco Editor (Middle Panel) */}
-        <div className="flex-1 flex flex-col min-w-0 bg-[#1e1e1e]">
-          <div className="flex items-center gap-1 bg-[#252526] px-2 py-1 overflow-x-auto">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-[#1e1e1e] border-t-2 border-[#1E4D3B] text-white text-sm cursor-pointer min-w-max">
-              <FileCode2 className="w-4 h-4 text-[#52B788]" />
-              {activeFile}
-              <button className="ml-2 hover:bg-[#333] rounded p-0.5"><X className="w-3 h-3" /></button>
-            </div>
-          </div>
-          
-          <div className="flex-1 relative">
-            <MonacoEditor
-              height="100%"
-              language={language}
-              theme="vs-dark"
-              value={code}
-              onChange={(value) => setCode(value || '')}
-              options={{
-                minimap: { enabled: false },
-                fontSize: 14,
-                fontFamily: "'Fira Code', 'Courier New', monospace",
-                lineHeight: 24,
-                padding: { top: 16 },
-                scrollBeyondLastLine: false,
-                smoothScrolling: true,
-                cursorBlinking: 'smooth',
-                cursorSmoothCaretAnimation: 'on',
-                formatOnPaste: true,
-              }}
-            />
-          </div>
-        </div>
+        {/* Center Panel: Adaptive Workspace */}
+        <LearningWorkspace
+          key={activeFile || 'workspace'}
+          mode={workspaceMode}
+          setMode={setWorkspaceMode}
+          code={code}
+          setCode={setCode}
+          language={language}
+          activeFile={activeFile}
+          activeFileType={activeFileType}
+          onAnalyze={handleAnalyze}
+          isAnalyzing={isAnalyzing}
+          subject={subject}
+          topic={topic}
+          onFileUpload={handleFileUpload}
+          onStartSession={handleStartSession}
+          onActivitySelect={handleActivitySelect}
+        />
 
-        {/* Chat Panel (Right Panel) */}
-        <div className="w-[400px] border-l border-[#E2DDCF] bg-white flex flex-col shrink-0">
-          <div className="p-4 border-b border-[#E2DDCF] bg-[#FAF7EE] flex justify-between items-center">
-            <h3 className="font-serif font-bold text-[#153326] flex items-center gap-2">
-              <MessageSquare className="w-4 h-4 text-[#1E4D3B]" />
-              DevSarthi Assistant
-            </h3>
-            <button className="text-[#6A887B] hover:text-[#1E4D3B]">
-              <Settings className="w-4 h-4" />
-            </button>
-          </div>
-          
-          {/* Chat Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#F4F0E6]">
-            {messages.map((msg) => (
-              <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm shadow-sm ${
-                  msg.role === 'user' 
-                    ? 'bg-[#1E4D3B] text-white rounded-br-sm font-medium' 
-                    : 'bg-white border border-[#E2DDCF] text-[#153326] rounded-bl-sm'
-                }`}>
-                  <p className="whitespace-pre-wrap leading-relaxed">{msg.content}</p>
-                </div>
-              </div>
-            ))}
-            {isAnalyzing && (
-              <div className="flex justify-start">
-                <div className="max-w-[85%] rounded-2xl px-4 py-3 text-sm shadow-sm bg-white border border-[#E2DDCF] text-[#153326] rounded-bl-sm flex items-center gap-2">
-                  <Loader2 className="w-4 h-4 animate-spin text-[#1E4D3B]" />
-                  <span className="text-[#3A5A4C]">Thinking...</span>
-                </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
-          
-          {/* Chat Input */}
-          <div className="p-4 bg-white border-t border-[#E2DDCF]">
-            <form onSubmit={handleSendMessage} className="relative">
-              <input
-                type="text"
-                value={chatInput}
-                onChange={(e) => setChatInput(e.target.value)}
-                placeholder="Ask about your code..."
-                className="w-full bg-[#F4F0E6] border border-[#E2DDCF] rounded-full pl-4 pr-12 py-3 text-sm focus:outline-none focus:border-[#1E4D3B] focus:ring-1 focus:ring-[#1E4D3B] text-[#153326]"
-              />
-              <button 
-                type="submit"
-                disabled={!chatInput.trim() || isAnalyzing}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[#1E4D3B] text-white rounded-full hover:bg-[#153326] transition-colors disabled:opacity-50 disabled:hover:bg-[#1E4D3B]"
-              >
-                <Send className="w-4 h-4" />
-              </button>
-            </form>
-            <div className="mt-3 flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-              {['Explain this error', 'How to optimize?', 'What is a pointer?'].map(suggestion => (
-                <button 
-                  key={suggestion}
-                  onClick={() => setChatInput(suggestion)}
-                  className="shrink-0 px-3 py-1 bg-[#E8E2D4] hover:bg-[#E4DFCE] text-[#3A5A4C] text-xs font-medium rounded-full transition-colors border border-[#E2DDCF]"
-                >
-                  {suggestion}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
+        {/* Right Panel: DevSarthi Tutor */}
+        <TutorPanel
+          subject={subject}
+          topic={topic}
+          isOpen={tutorOpen}
+          messages={messages}
+          chatInput={chatInput}
+          setChatInput={setChatInput}
+          isAnalyzing={isAnalyzing}
+          onSendMessage={handleSendMessage}
+          onQuickPrompt={(prompt) => {
+            setChatInput(prompt);
+            setTimeout(() => {
+              const syntheticEvent = { preventDefault: () => { } } as React.FormEvent;
+              // Pass the prompt directly to avoid state race conditions
+              setChatInput('');
+              const userMsg: Message = { id: Date.now().toString(), role: 'user', content: prompt };
+              setMessages(prev => [...prev, userMsg]);
+              setIsAnalyzing(true);
+              fetch('http://localhost:8000/analyze', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code, prompt, language }),
+              })
+                .then(res => res.json())
+                .then(data => {
+                  setMessages(prev => [...prev, {
+                    id: (Date.now() + 1).toString(),
+                    role: 'assistant',
+                    content: data.response || data.message || 'Analysis complete.'
+                  }]);
+                })
+                .catch(() => {
+                  setMessages(prev => [...prev, {
+                    id: (Date.now() + 1).toString(),
+                    role: 'assistant',
+                    content: 'DevSarthi backend is currently offline. Start Ollama / FastAPI on port 8000.'
+                  }]);
+                })
+                .finally(() => setIsAnalyzing(false));
+            }, 50);
+          }}
+        />
 
-      </div>
+
+
+      </main>
     </div>
   );
 }
