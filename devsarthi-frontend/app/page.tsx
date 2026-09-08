@@ -1,415 +1,399 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import {
-  Code2,
-  Sparkles,
-  Brain,
-  Languages,
-  ChevronRight,
-  GraduationCap,
-  Zap,
-  Shield,
-  ArrowRight,
-  Terminal,
-  Bot,
-  Layers,
-  MessageCircle,
-  BookOpen,
-  Star
-} from 'lucide-react';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import React, { useState, Suspense } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import StudioHeader from './components/studio/StudioHeader';
+import SourcesPanel from './components/studio/SourcesPanel';
+import LearningWorkspace, { WorkspaceMode } from './components/studio/LearningWorkspace';
+import TutorPanel from './components/studio/TutorPanel';
+import NotesDrawer from './components/studio/NotesDrawer';
+import { Edit3, Dumbbell, Settings } from 'lucide-react';
 
-export default function Home() {
-  const features = [
-    {
-      icon: <Brain className="w-6 h-6" />,
-      title: 'Socratic Questioning',
-      description: "We don't just give answers. We guide you to find them yourself through intelligent questioning.",
-      color: 'terracotta',
-      highlight: true
-    },
-    {
-      icon: <Languages className="w-6 h-6" />,
-      title: 'Hinglish + Marathi',
-      description: 'Learn in the language you are most comfortable with. Break the language barrier in programming.',
-      color: 'sage'
-    },
-    {
-      icon: <GraduationCap className="w-6 h-6" />,
-      title: 'MU Syllabus Aligned',
-      description: 'Strictly aligned with Mumbai University 2026 syllabus to help you ace your exact coursework.',
-      color: 'tan'
-    },
-    {
-      icon: <Code2 className="w-6 h-6" />,
-      title: 'Live Code Editor',
-      description: 'Write, run, and debug code directly in your browser with our integrated Monaco Editor.',
-      color: 'terracotta',
-      highlight: true
-    },
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: 'AI Debug Analysis',
-      description: 'Instant, intelligent analysis of your runtime errors and logical bugs to point you in the right direction.',
-      color: 'sage'
-    },
-    {
-      icon: <Shield className="w-6 h-6" />,
-      title: 'Privacy First',
-      description: '100% local processing. No API keys needed, ensuring your data and code remain completely private.',
-      color: 'tan'
-    }
+type Message = {
+  id: string;
+  role: 'user' | 'assistant';
+  content: string;
+};
+
+export type SourceType = "code" | "image" | "pdf" | "document" | "text" | "video" | "youtube" | "unknown";
+
+export type FileItem = {
+  name: string;
+  type: SourceType;
+  language: string;
+  content: string;
+};
+
+export default function StudioPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#FDF9EF] flex items-center justify-center">Loading Studio...</div>}>
+      <StudioContent />
+    </Suspense>
+  );
+}
+
+function StudioContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const subject = searchParams?.get('subject') || '';
+  const topic = searchParams?.get('topic') || '';
+
+  const hasSession = Boolean(subject && topic);
+
+  const [code, setCode] = useState<string>('// Welcome to DevSarthi Studio\n// Write your code here...\n\ndef bubble_sort(arr):\n    n = len(arr)\n    for i in range(n):\n        for j in range(0, n-i-1):\n            if arr[j] > arr[j+1]:\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n    return arr');
+  const [language, setLanguage] = useState<string>('python');
+
+  const initialMessages: Message[] = hasSession ? [
+    { id: '1', role: 'assistant', content: 'Hello! I am DevSarthi. How can I help you with your coding today?' }
+  ] : [
+    { id: '1', role: 'assistant', content: 'Your Socratic learning guide.\n\nAdd a source or start a learning activity, and I\'ll help you understand it step by step.' }
   ];
 
-  const getColorClasses = (color: string) => {
-    switch (color) {
-      case 'terracotta':
-        return 'bg-[#1E4D3B]/10 text-[#1E4D3B] border-[#1E4D3B]/30';
-      case 'sage':
-        return 'bg-[#2D6A4F]/10 text-[#2D6A4F] border-[#2D6A4F]/30';
-      case 'tan':
-        return 'bg-[#52B788]/10 text-[#1E4D3B] border-[#52B788]/30';
-      default:
-        return 'bg-[#1E4D3B]/10 text-[#1E4D3B] border-[#1E4D3B]/30';
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
+  const [chatInput, setChatInput] = useState('');
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  const initialFiles: FileItem[] = hasSession ? [
+    { name: 'main.py', type: 'code', language: 'python', content: 'def main():\n    print("Hello DevSarthi")' },
+    { name: 'utils.js', type: 'code', language: 'javascript', content: 'export const add = (a, b) => a + b;' }
+  ] : [];
+
+  const [files, setFiles] = useState<FileItem[]>(initialFiles);
+  const [activeFile, setActiveFile] = useState<string>(hasSession ? 'main.py' : '');
+
+  const [sourcesOpen, setSourcesOpen] = useState(true);
+  const [tutorOpen, setTutorOpen] = useState(true);
+  const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>(hasSession ? 'entry' : 'welcome');
+  const [notesOpen, setNotesOpen] = useState(false);
+
+  type Activity = 'read' | 'practice' | 'code' | null;
+  const [sessionActivity, setSessionActivity] = useState<Activity>(null);
+
+  React.useEffect(() => {
+    setSessionActivity(null);
+  }, [subject, topic]);
+
+  const handleActivitySelect = (activity: Activity) => {
+    setSessionActivity(activity);
+    if (activity === 'read') setWorkspaceMode('viewer');
+    else if (activity === 'practice') setWorkspaceMode('practice');
+    else if (activity === 'code') setWorkspaceMode('editor');
+  };
+
+  const handleAnalyze = async () => {
+    if (!code.trim()) return;
+
+    const userMsg: Message = { id: Date.now().toString(), role: 'user', content: 'Please analyze my code.' };
+    setMessages(prev => [...prev, userMsg]);
+    setIsAnalyzing(true);
+
+    try {
+      const response = await fetch('http://localhost:8000/analyze', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ code, language }),
+      });
+
+      const data = await response.json();
+
+      setMessages(prev => [...prev, {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: data.message || 'Analysis complete. Do you have any specific doubts?'
+      }]);
+    } catch (error) {
+      setMessages(prev => [...prev, {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: 'Oops, backend se connect karne mein issue aaya. Please make sure the server is running on port 8000.'
+      }]);
+    } finally {
+      setIsAnalyzing(false);
+      if (!tutorOpen) setTutorOpen(true);
     }
   };
 
-  const processSteps = [
-    { num: '01', title: 'PASTE', desc: 'Paste your code and error', color: 'terracotta' },
-    { num: '02', title: 'ANALYZE', desc: 'AI reviews your context', color: 'sage' },
-    { num: '03', title: 'QUESTION', desc: 'Respond to guiding hints', color: 'tan' },
-    { num: '04', title: 'LEARN', desc: 'Understand the core concept', color: 'terracotta' },
-    { num: '05', title: 'MASTER', desc: 'Solve it independently', color: 'sage' },
-  ];
+  const handleSendMessage = async (e?: React.FormEvent) => {
+    e?.preventDefault();
+    if (!chatInput.trim() || isAnalyzing) return;
 
-  const techStack = [
-    { name: 'Next.js 16', color: 'terracotta' },
-    { name: 'FastAPI', color: 'sage' },
-    { name: 'TinyLlama 1.1B', color: 'tan' },
-    { name: 'LoRA Fine-Tuning', color: 'terracotta' },
-    { name: 'Ollama', color: 'sage' },
-    { name: 'Monaco Editor', color: 'tan' },
-  ];
+    const userPrompt = chatInput;
+    const userMsg: Message = { id: Date.now().toString(), role: 'user', content: userPrompt };
+    setMessages(prev => [...prev, userMsg]);
+    setChatInput('');
+    setIsAnalyzing(true);
 
-  const getDotColor = (color: string) => {
-    switch (color) {
-      case 'terracotta': return 'bg-[#1E4D3B]';
-      case 'sage': return 'bg-[#2D6A4F]';
-      case 'tan': return 'bg-[#52B788]';
-      default: return 'bg-[#1E4D3B]';
+    try {
+      const response = await fetch('http://localhost:8000/analyze', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ code, prompt: userPrompt, language }),
+      });
+
+      const data = await response.json();
+
+      setMessages(prev => [...prev, {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: data.response || data.message || 'Analysis complete. Do you have any specific doubts?'
+      }]);
+    } catch (error) {
+      setMessages(prev => [...prev, {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: 'Backend se connect karne mein issue aaya. Make sure FastAPI server (port 8000) and Ollama are running.'
+      }]);
+    } finally {
+      setIsAnalyzing(false);
     }
   };
 
-  // Socratic Response Typewriter Animation hook
-  const fullText = "Dekho, array ki length n hai. Loop kahan tak chal raha hai? Array indices hamesha 0 se start hote hain. What should be your loop condition?";
-  const [typedText, setTypedText] = useState("");
-  const terminalRef = useRef<HTMLDivElement>(null);
+  // UPDATED: Proper detection for code files, PDFs, videos, and images
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          let index = 0;
-          setTypedText("");
-          const interval = setInterval(() => {
-            if (index < fullText.length) {
-              setTypedText((prev) => fullText.substring(0, index + 1));
-              index++;
-            } else {
-              clearInterval(interval);
-            }
-          }, 25);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    if (terminalRef.current) {
-      observer.observe(terminalRef.current);
+    const ext = file.name.split('.').pop()?.toLowerCase() || '';
+    let sourceType: SourceType = 'unknown';
+
+    const codeExtensions = [
+      'py', 'js', 'jsx', 'ts', 'tsx', 'html', 'css', 'json',
+      'java', 'c', 'cpp', 'cs', 'go', 'rs', 'php', 'rb', 'sql', 'sh'
+    ];
+
+    if (codeExtensions.includes(ext)) {
+      sourceType = 'code';
+    } else if (file.type.startsWith('image/') || ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'].includes(ext)) {
+      sourceType = 'image';
+    } else if (file.type === 'application/pdf' || ext === 'pdf') {
+      sourceType = 'pdf';
+    } else if (file.type.startsWith('video/') || ['mp4', 'webm', 'mov', 'mkv'].includes(ext)) {
+      sourceType = 'video';
+    } else if (['doc', 'docx', 'csv', 'md', 'rtf'].includes(ext)) {
+      sourceType = 'document';
+    } else if (file.type.startsWith('text/') || ext === 'txt') {
+      sourceType = 'text';
+    } else {
+      sourceType = 'code';
     }
-    return () => observer.disconnect();
-  }, []);
 
-  // Timeline Progress Scroll hook
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const stepsRef = useRef<HTMLDivElement>(null);
+    // Binary media preview handling
+    if (['image', 'pdf', 'video'].includes(sourceType)) {
+      const objectUrl = URL.createObjectURL(file);
+      const newFile: FileItem = {
+        name: file.name,
+        type: sourceType,
+        language: ext || 'binary',
+        content: objectUrl
+      };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!stepsRef.current) return;
-      const rect = stepsRef.current.getBoundingClientRect();
-      const viewHeight = window.innerHeight;
-      
-      const start = viewHeight * 0.8;
-      const end = viewHeight * 0.2;
-      const current = start - rect.top;
-      
-      let progress = current / rect.height;
-      progress = Math.max(0, Math.min(1, progress));
-      setScrollProgress(progress * 100);
+      setFiles(prev => [...prev, newFile]);
+      setActiveFile(file.name);
+      setCode(objectUrl);
+      setWorkspaceMode('viewer');
+      return;
+    }
+
+    // Text and Code files reading
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const content = event.target?.result as string;
+      const lang = ext === 'py' ? 'python' : ext === 'js' ? 'javascript' : ext === 'ts' ? 'typescript' : ext || 'text';
+      const newFile: FileItem = {
+        name: file.name,
+        type: sourceType,
+        language: lang,
+        content
+      };
+      setFiles(prev => [...prev, newFile]);
+      setActiveFile(file.name);
+      setCode(content);
+      setLanguage(lang);
+
+      if (sessionActivity) {
+        if (sessionActivity === 'read') setWorkspaceMode('viewer');
+        else if (sessionActivity === 'practice') setWorkspaceMode('practice');
+        else if (sessionActivity === 'code') setWorkspaceMode('editor');
+      } else {
+        setWorkspaceMode('entry');
+      }
     };
+    reader.readAsText(file);
+  };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleStartSession = (newSubject: string, newTopic: string) => {
+    const params = new URLSearchParams(searchParams?.toString() || '');
+    params.set('subject', newSubject);
+    params.set('topic', newTopic);
+    router.push(`/studio?${params.toString()}`);
+  };
+
+  const handleYoutubeLink = () => {
+    const url = prompt("Enter YouTube tutorial link:");
+    if (url) {
+      const newFile: FileItem = {
+        name: `YouTube Video ${files.length + 1}`,
+        type: 'youtube',
+        language: 'video',
+        content: url
+      };
+      setFiles(prev => [...prev, newFile]);
+      setActiveFile(newFile.name);
+      setCode(url);
+
+      if (sessionActivity) {
+        if (sessionActivity === 'read') setWorkspaceMode('viewer');
+        else if (sessionActivity === 'practice') setWorkspaceMode('practice');
+        else if (sessionActivity === 'code') setWorkspaceMode('editor');
+      } else {
+        setWorkspaceMode('entry');
+      }
+
+      setMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        role: 'user',
+        content: `I'm learning from this video: ${url}`
+      }]);
+      setTimeout(() => {
+        setMessages(prev => [...prev, {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: 'Great! Video context has been loaded. We can discuss the concepts from the tutorial.'
+        }]);
+      }, 1000);
+      if (!tutorOpen) setTutorOpen(true);
+    }
+  };
+
+  const handleFileSelect = (fileName: string) => {
+    setActiveFile(fileName);
+    const selected = files.find(f => f.name === fileName);
+    if (selected) {
+      setCode(selected.content);
+      const lang = selected.language === 'py' ? 'python' : selected.language === 'js' ? 'javascript' : selected.language;
+      setLanguage(lang);
+    }
+
+    if (sessionActivity) {
+      if (sessionActivity === 'read') setWorkspaceMode('viewer');
+      else if (sessionActivity === 'practice') setWorkspaceMode('practice');
+      else if (sessionActivity === 'code') setWorkspaceMode('editor');
+    } else {
+      setWorkspaceMode('entry');
+    }
+  };
+
+  const handleDeleteSource = (fileName: string) => {
+    const updatedFiles = files.filter(f => f.name !== fileName);
+    setFiles(updatedFiles);
+    if (activeFile === fileName) {
+      if (updatedFiles.length > 0) {
+        handleFileSelect(updatedFiles[0].name);
+      } else {
+        setActiveFile('');
+        setCode('');
+        setWorkspaceMode('welcome');
+      }
+    }
+  };
+
+  const activeFileObj = files.find(f => f.name === activeFile);
+  const activeFileType = activeFileObj?.type || 'unknown';
 
   return (
-    <div className="min-h-screen bg-[#F4F0E6] text-[#153326] font-sans selection:bg-[#1E4D3B]/20 scroll-behavior: smooth">
-      <Header />
+    <div className="flex flex-col min-h-screen bg-[#FDF9EF] font-body-md text-[#1c1c16] overflow-hidden">
+      <StudioHeader subject={subject} topic={topic} />
 
-      <main className="flex flex-col items-center w-full">
-        {/* 1. HERO SECTION */}
-        <section className="relative w-full min-h-[85vh] flex flex-col items-center justify-center overflow-hidden px-6 py-20 text-center">
-          {/* Animated Background Blobs */}
-          <div className="absolute top-1/4 left-1/4 w-[45vw] h-[45vw] rounded-full bg-[#1E4D3B]/5 blur-[120px] pointer-events-none -translate-x-1/2 -translate-y-1/2 animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-[40vw] h-[40vw] rounded-full bg-[#52B788]/8 blur-[100px] pointer-events-none translate-x-1/2 translate-y-1/2 animate-float" style={{ animationDelay: '1.5s' }}></div>
-          
-          <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto space-y-10 animate-slideUp">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-[#1E4D3B]/10 text-[#1E4D3B] border border-[#1E4D3B]/20 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1E4D3B] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1E4D3B]"></span>
-              </span>
-              Powered by TinyLlama + LoRA Fine-Tuning
-            </div>
+      <main
+        className="mt-16 flex-1 grid h-[calc(100vh-4rem)] p-4 gap-4 overflow-hidden relative"
+        style={{
+          gridTemplateColumns: `${sourcesOpen ? 'minmax(240px, 280px)' : '48px'} minmax(0, 1fr) ${tutorOpen ? 'minmax(300px, 340px)' : '0px'}`
+        }}
+      >
+        <div className="absolute inset-0 pointer-events-none opacity-5" style={{ backgroundImage: 'radial-gradient(#013626 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
 
-            <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl font-medium leading-[1.1] tracking-tight text-[#153326]">
-              Your AI Coding<br />
-              Mentor for<br />
-              <span className="text-[#1E4D3B] italic relative inline-block">
-                Mumbai University
-                <span className="absolute bottom-0 left-0 w-full h-[6px] bg-[#1E4D3B]/10 -rotate-1 rounded-full"></span>
-              </span>
-            </h1>
+        <SourcesPanel
+          subject={subject}
+          topic={topic}
+          isOpen={sourcesOpen}
+          setIsOpen={setSourcesOpen}
+          files={files}
+          activeFile={activeFile}
+          onFileSelect={handleFileSelect}
+          onFileUpload={handleFileUpload}
+          onYoutubeLink={handleYoutubeLink}
+          onDeleteSource={handleDeleteSource}
+        />
 
-            <p className="text-[#3A5A4C] text-lg md:text-xl max-w-2xl leading-relaxed">
-              Stop copying code blindly. DevSarthi asks smart Socratic questions in Hinglish to help you find and fix bugs yourself, built strictly for MU computer engineering.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Link 
-                href="/studio"
-                className="inline-flex items-center justify-center gap-2.5 px-10 py-5 bg-[#1E4D3B] text-white rounded-full hover:bg-[#153326] shadow-lg hover:shadow-[#1E4D3B]/30 transition-all duration-300 hover:-translate-y-1 font-bold text-base"
-              >
-                Launch Socratic Studio <ArrowRight className="w-5 h-5" />
-              </Link>
-              <a 
-                href="#demo"
-                className="inline-flex items-center justify-center px-10 py-5 border border-[#1E4D3B] text-[#1E4D3B] rounded-full hover:bg-[#1E4D3B]/5 transition-all duration-300 hover:-translate-y-1 font-bold text-base cursor-pointer"
-              >
-                Explore Socratic Demo
-              </a>
-            </div>
+        <LearningWorkspace
+          mode={workspaceMode}
+          setMode={setWorkspaceMode}
+          code={code}
+          setCode={setCode}
+          language={language}
+          activeFile={activeFile}
+          activeFileType={activeFileType}
+          onAnalyze={handleAnalyze}
+          isAnalyzing={isAnalyzing}
+          subject={subject}
+          topic={topic}
+          onFileUpload={handleFileUpload}
+          onStartSession={handleStartSession}
+          onActivitySelect={handleActivitySelect}
+        />
 
-            {/* Interactive Badge Cards */}
-            <div className="pt-6 flex flex-wrap justify-center items-center gap-4">
-              <div className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#E2DDCF] rounded-2xl shadow-sm hover:shadow-md hover:border-[#1E4D3B]/40 hover:-translate-y-1 transition-all duration-300 cursor-default group">
-                <div className="w-8 h-8 rounded-xl bg-[#1E4D3B]/10 flex items-center justify-center text-[#1E4D3B] group-hover:scale-110 transition-transform">
-                  <Shield className="w-4 h-4" />
-                </div>
-                <div className="text-left">
-                  <div className="text-xs font-bold text-[#153326] uppercase tracking-wide">No API Keys</div>
-                  <div className="text-[10px] text-[#3A5A4C]">Runs 100% free offline</div>
-                </div>
-              </div>
+        <TutorPanel
+          subject={subject}
+          topic={topic}
+          isOpen={tutorOpen}
+          messages={messages}
+          chatInput={chatInput}
+          setChatInput={setChatInput}
+          isAnalyzing={isAnalyzing}
+          onSendMessage={handleSendMessage}
+        />
 
-              <div className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#E2DDCF] rounded-2xl shadow-sm hover:shadow-md hover:border-[#2D6A4F]/40 hover:-translate-y-1 transition-all duration-300 cursor-default group">
-                <div className="w-8 h-8 rounded-xl bg-[#2D6A4F]/10 flex items-center justify-center text-[#2D6A4F] group-hover:scale-110 transition-transform">
-                  <Bot className="w-4 h-4" />
-                </div>
-                <div className="text-left">
-                  <div className="text-xs font-bold text-[#153326] uppercase tracking-wide">100% Local</div>
-                  <div className="text-[10px] text-[#3A5A4C]">Private data processing</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2.5 px-5 py-3 bg-white border border-[#E2DDCF] rounded-2xl shadow-sm hover:shadow-md hover:border-[#52B788]/40 hover:-translate-y-1 transition-all duration-300 cursor-default group">
-                <div className="w-8 h-8 rounded-xl bg-[#52B788]/15 flex items-center justify-center text-[#1E4D3B] group-hover:scale-110 transition-transform">
-                  <GraduationCap className="w-4 h-4" />
-                </div>
-                <div className="text-left">
-                  <div className="text-xs font-bold text-[#153326] uppercase tracking-wide">MU Syllabus</div>
-                  <div className="text-[10px] text-[#3A5A4C]">Semester V coursework</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* NEW CTA BLOCK #1 */}
-        <section className="w-full max-w-7xl mx-auto px-6 py-6 mt-4">
-          <div className="bg-[#1E4D3B] text-[#F4F0E6] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-lg">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-2xl"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-2xl"></div>
-            
-            <div className="relative z-10 text-left max-w-xl space-y-3">
-              <h2 className="font-serif text-3xl font-bold leading-tight">Start Coding Socratic Style →</h2>
-              <p className="text-[#F4F0E6]/85 text-sm md:text-base leading-relaxed">
-                Experience AI tutoring built specifically for Semester V computer engineering coursework. No setup or external API keys needed.
-              </p>
-              <div className="flex flex-wrap gap-2 pt-1">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 text-white rounded-full text-xs font-medium border border-white/10">
-                  <Shield className="w-3.5 h-3.5" /> No API Keys
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 text-white rounded-full text-xs font-medium border border-white/10">
-                  <Bot className="w-3.5 h-3.5" /> 100% Local
-                </span>
-              </div>
-            </div>
-            
-            <Link 
-              href="/studio"
-              className="relative z-10 w-full md:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#F4F0E6] text-[#1E4D3B] rounded-full hover:bg-white shadow-md transition-all duration-300 hover:-translate-y-0.5 font-bold whitespace-nowrap"
+        {workspaceMode !== 'entry' && workspaceMode !== 'welcome' && (
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 glass-panel p-1.5 rounded-full shadow-lg bg-surface/80 backdrop-blur-md border border-outline-variant/30">
+            <button
+              onClick={() => setNotesOpen(!notesOpen)}
+              className="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors"
+              title="Notes"
             >
-              Launch Studio <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </section>
+              <Edit3 className="w-5 h-5" />
+            </button>
 
-        {/* 2. ABOUT SECTION */}
-        <section id="demo" className="w-full max-w-7xl mx-auto px-6 py-12 scroll-mt-20">
-          <div className="bg-[#E4DFCE]/60 rounded-3xl p-10 md:p-16 flex flex-col lg:flex-row items-center gap-12 border border-[#E2DDCF] shadow-sm">
-            <div className="flex-1 space-y-6">
-              <h2 className="font-serif text-4xl md:text-5xl font-medium text-[#153326]">What is DevSarthi?</h2>
-              <p className="text-[#3A5A4C] text-lg md:text-xl leading-relaxed">
-                We believe that giving you the answer directly robs you of the opportunity to learn. DevSarthi is designed as a Socratic tutor—it analyzes your code, identifies the bug, and asks you targeted questions in Hinglish or Marathi to help you figure it out yourself.
-              </p>
-            </div>
-            <div ref={terminalRef} className="flex-1 w-full max-w-2xl">
-              <div className="bg-white rounded-2xl border border-[#E2DDCF] shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-                <div className="bg-[#E4DFCE]/60 px-5 py-3.5 border-b border-[#E2DDCF] flex items-center gap-2">
-                  <div className="w-3.5 h-3.5 rounded-full bg-[#E07A5F]"></div>
-                  <div className="w-3.5 h-3.5 rounded-full bg-[#F2CC8F]"></div>
-                  <div className="w-3.5 h-3.5 rounded-full bg-[#52B788]"></div>
-                  <span className="ml-2 text-xs font-semibold text-[#6A887B]">devsarthi-terminal</span>
-                </div>
-                <div className="p-8 space-y-5 font-mono text-base leading-relaxed">
-                  <div className="flex gap-3">
-                    <span className="text-[#6A887B] font-bold">User:</span>
-                    <span className="text-[#153326]">My sorting code gives IndexOutOfBoundsException!</span>
-                  </div>
-                  <div className="flex gap-3 min-h-[5rem]">
-                    <span className="text-[#1E4D3B] font-bold">DevSarthi:</span>
-                    <span className="text-[#3A5A4C]">
-                      {typedText}
-                      <span className="inline-block w-1.5 h-4 ml-1 bg-[#1E4D3B] animate-pulse"></span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+            <div className="w-px h-6 bg-outline-variant/50"></div>
 
-        {/* 3. FEATURES SECTION */}
-        <section className="w-full max-w-7xl mx-auto px-6 py-20">
-          <div className="text-center mb-16 space-y-4">
-            <span className="small-caps tracking-widest text-[#6A887B] text-sm font-semibold uppercase">What We Offer</span>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#153326]">Features</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, idx) => (
-              <div 
-                key={idx} 
-                className={`rounded-2xl p-8 border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#1E4D3B]/50 group ${
-                  feature.highlight 
-                    ? 'border-[#1E4D3B] bg-[#FAF8F2] ring-1 ring-[#1E4D3B]/10 scale-[1.01]' 
-                    : 'bg-white border-[#E2DDCF]'
-                }`}
-              >
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 transition-colors duration-300 ${getColorClasses(feature.color)}`}>
-                  {feature.icon}
-                </div>
-                <h3 className="font-serif text-2xl mb-3 text-[#153326]">{feature.title}</h3>
-                <p className="text-[#3A5A4C] leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+            <select
+              value={sessionActivity || 'code'}
+              onChange={(e) => handleActivitySelect(e.target.value as Activity)}
+              className="px-4 h-10 rounded-full flex items-center gap-2 text-primary bg-primary-container/10 hover:bg-primary-container/20 font-title-md text-[14px] transition-colors border border-primary/20 outline-none cursor-pointer appearance-none text-center"
+              style={{ textAlignLast: 'center' }}
+            >
+              <option value="read">Activity: Read</option>
+              <option value="practice">Activity: Practice</option>
+              <option value="code">Activity: Code</option>
+            </select>
 
-        {/* 4. HOW IT WORKS */}
-        <section className="w-full max-w-7xl mx-auto px-6 py-10">
-          <div ref={stepsRef} className="bg-[#E4DFCE]/40 rounded-3xl p-10 md:p-16 border border-[#E2DDCF]">
-            <div className="text-center mb-16 space-y-4">
-              <span className="small-caps tracking-widest text-[#6A887B] text-sm font-semibold uppercase">Our Process</span>
-              <h2 className="font-serif text-4xl md:text-5xl text-[#153326]">How DevSarthi Works</h2>
-            </div>
-            <div className="flex flex-col lg:flex-row justify-between relative">
-              {/* Connecting background line */}
-              <div className="hidden lg:block absolute top-7 left-12 right-12 h-[2px] bg-[#E2DDCF] z-0"></div>
-              {/* Connecting progress line */}
-              <div 
-                className="hidden lg:block absolute top-7 left-12 h-[2px] bg-[#1E4D3B] z-0 transition-all duration-75"
-                style={{ width: `calc(${scrollProgress}% - 6rem)` }}
-              ></div>
-              
-              {processSteps.map((step, idx) => (
-                <div key={idx} className="flex flex-col items-center relative z-10 w-full lg:w-1/5 mb-8 lg:mb-0 text-center px-2 group">
-                  <div className={`w-14 h-14 rounded-full flex items-center justify-center font-serif text-xl mb-4 bg-[#F4F0E6] border-2 transition-transform duration-300 group-hover:scale-110 ${
-                    step.color === 'terracotta' ? 'border-[#1E4D3B] text-[#1E4D3B]' : 
-                    step.color === 'sage' ? 'border-[#2D6A4F] text-[#2D6A4F]' : 
-                    'border-[#52B788] text-[#1E4D3B]'
-                  }`}>
-                    {step.num}
-                  </div>
-                  <h4 className="font-medium text-[#153326] mb-2">{step.title}</h4>
-                  <p className="text-sm text-[#3A5A4C]">{step.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+            <div className="w-px h-6 bg-outline-variant/50"></div>
 
-        {/* 5. TECH STACK */}
-        <section className="w-full max-w-7xl mx-auto px-6 py-20 text-center overflow-hidden">
-          <h2 className="font-serif text-3xl mb-10 text-[#6A887B]">Built With</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            {techStack.map((tech, idx) => (
-              <div key={idx} className="bg-white px-5 py-2.5 rounded-full border border-[#E2DDCF] shadow-sm flex items-center gap-2 hover:-translate-y-1 transition-transform duration-300 cursor-default">
-                <span className={`w-2 h-2 rounded-full ${getDotColor(tech.color)}`}></span>
-                <span className="text-[#3A5A4C] font-medium">{tech.name}</span>
-              </div>
-            ))}
+            <button
+              className="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors"
+              title="Settings"
+            >
+              <Settings className="w-5 h-5" />
+            </button>
           </div>
-        </section>
+        )}
 
-        {/* 7. QUOTE SECTION */}
-        <section className="w-full max-w-4xl mx-auto px-6 pb-20">
-          <div className="bg-[#E4DFCE]/50 rounded-3xl p-12 text-center border border-[#E2DDCF]">
-            <p className="font-serif italic text-2xl md:text-3xl text-[#3A5A4C] leading-relaxed">
-              "The only way to learn programming is by programming."
-            </p>
-            <p className="mt-4 text-[#6A887B] font-medium">— Dennis Ritchie</p>
-          </div>
-        </section>
-
-        {/* 8. CTA SECTION */}
-        <section className="w-full max-w-6xl mx-auto px-6 pb-24">
-          <div className="bg-[#1E4D3B] rounded-3xl p-12 md:p-20 text-center text-white relative overflow-hidden shadow-xl">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-black opacity-10 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl"></div>
-            
-            <div className="relative z-10 max-w-2xl mx-auto space-y-8">
-              <h2 className="font-serif text-4xl md:text-6xl text-[#F4F0E6]">Ready to Debug Smarter?</h2>
-              <p className="text-[#F4F0E6]/90 text-lg md:text-xl">
-                Stop copying answers. Start understanding your code.
-              </p>
-              <Link 
-                href="/studio"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#F4F0E6] text-[#1E4D3B] rounded-full font-bold hover:bg-white transition-all duration-300 hover:-translate-y-1 shadow-lg mt-4"
-              >
-                Launch AI Studio <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-        </section>
+        <NotesDrawer isOpen={notesOpen} onClose={() => setNotesOpen(false)} />
       </main>
-
-      <Footer />
     </div>
   );
 }
