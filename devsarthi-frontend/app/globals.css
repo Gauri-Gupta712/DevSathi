@@ -1,0 +1,264 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #fdf9ef;
+  --color-surface-dim: #dddad0;
+  --color-surface-bright: #fdf9ef;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f7f3e9;
+  --color-surface-container: #f2eee4;
+  --color-surface-container-high: #ece8de;
+  --color-surface-container-highest: #e6e2d8;
+  --color-on-surface: #1c1c16;
+  --color-on-surface-variant: #414944;
+  --color-inverse-surface: #31312a;
+  --color-inverse-on-surface: #f4f0e6;
+  --color-outline: #717974;
+  --color-outline-variant: #c0c9c2;
+  --color-surface-tint: #396754;
+  
+  --color-primary: #013626;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1e4d3b;
+  --color-on-primary-container: #8cbda6;
+  --color-inverse-primary: #a0d1b9;
+  
+  --color-secondary: #2c694e;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #aeeecb;
+  --color-on-secondary-container: #316e52;
+  
+  --color-tertiary: #003622;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #004f33;
+  --color-on-tertiary-container: #60c595;
+  
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  
+  --color-primary-fixed: #bbeed5;
+  --color-primary-fixed-dim: #a0d1b9;
+  --color-on-primary-fixed: #002115;
+  --color-on-primary-fixed-variant: #204f3d;
+  
+  --color-secondary-fixed: #b1f0ce;
+  --color-secondary-fixed-dim: #95d4b3;
+  --color-on-secondary-fixed: #002114;
+  --color-on-secondary-fixed-variant: #0e5138;
+  
+  --color-tertiary-fixed: #92f7c3;
+  --color-tertiary-fixed-dim: #75daa8;
+  --color-on-tertiary-fixed: #002113;
+  --color-on-tertiary-fixed-variant: #005235;
+
+  --font-serif: var(--font-source-serif);
+  --font-sans: var(--font-hanken-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
+  
+  --font-display-lg: var(--font-source-serif);
+  --font-headline-lg: var(--font-source-serif);
+  --font-headline-lg-mobile: var(--font-source-serif);
+  --font-title-md: var(--font-hanken-grotesk);
+  --font-body-lg: var(--font-hanken-grotesk);
+  --font-body-md: var(--font-hanken-grotesk);
+  --font-code-sm: var(--font-jetbrains-mono);
+  --font-label-caps: var(--font-hanken-grotesk);
+
+  /* We'll use standard text sizing from Tailwind where possible, but add custom typography combinations */
+
+  --spacing-gutter: 24px;
+  --spacing-margin-desktop: 64px;
+  --spacing-margin-mobile: 20px;
+  --spacing-unit: 8px;
+  
+  /* Use max-w-[1280px] in classes for container */
+}
+
+:root {
+  --background: var(--color-surface);
+  --foreground: var(--color-on-surface);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-container);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(30, 77, 59, 0.6);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-container);
+}
+
+/* Custom classes from Stitch code.html */
+@layer components {
+  .glass-panel {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(192, 201, 194, 0.4);
+    box-shadow: 0 4px 24px rgba(30, 77, 59, 0.08);
+  }
+
+  .glass-panel-dark {
+    background-color: rgba(8, 28, 21, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(192, 201, 194, 0.1);
+  }
+
+  .ambient-shadow {
+    box-shadow: 0 12px 32px -4px rgba(30, 77, 59, 0.12), 0 4px 16px -4px rgba(30, 77, 59, 0.08);
+  }
+
+  .inner-glow {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(113, 121, 116, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(113, 121, 116, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Optional additions for Stitch blob animation if needed */
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.font-display-lg {
+  font-family: var(--font-display-lg);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.02em;
+}
+
+.font-headline-lg {
+  font-family: var(--font-headline-lg);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+}
+
+.font-headline-lg-mobile {
+  font-family: var(--font-headline-lg-mobile);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.font-title-md {
+  font-family: var(--font-title-md);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.font-body-lg {
+  font-family: var(--font-body-lg);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.font-body-md {
+  font-family: var(--font-body-md);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.font-code-sm {
+  font-family: var(--font-code-sm);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.font-label-caps {
+  font-family: var(--font-label-caps);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+}

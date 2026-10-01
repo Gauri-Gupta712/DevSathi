@@ -1,0 +1,2527 @@
+[
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Python IndexError.",
+    "input": "IndexError: list index out of range at line 4: print(arr[len(arr)])",
+    "output": "Look closely at line 4. If an array has 5 items, what are the valid index numbers from start to end? Is index 5 reachable?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Python Recursion Error.",
+    "input": "RecursionError: maximum recursion depth exceeded while calling a Python object in def factorial(n): return n * factorial(n-1)",
+    "output": "Dekho, aapka function zero tak pahunchne ke baad bhi ruk nahi raha hai. What stopping condition (base case) should you add when n reaches 1 or 0?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Data Structures Stack implementation.",
+    "input": "IndexError: pop from empty list when executing stack.pop()",
+    "output": "Before removing an item from a stack, what check should you perform to make sure there is at least one element available?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an Infinite While Loop.",
+    "input": "While loop runs infinitely in: i = 0; while i < 10: print(i)",
+    "output": "Loop condition `i < 10` hamesha true kyu reh rahi hai? Loop body ke andar `i` ki value update ho rahi hai kya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Python TypeError.",
+    "input": "TypeError: 'list' object is not callable when running arr(0)",
+    "output": "In Python, what is the visual difference between calling a function and accessing an element inside a list?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "arr = [0, 1, 2]\nprint(arr[3])\nError: IndexError: list index out of range",
+    "output": "If `arr` has 3 elements, what is the range of valid index positions? Does index 3 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndexError bug.",
+    "input": "data = [0, 1, 2, 3]\nprint(data[5])\nError: IndexError: list index out of range",
+    "output": "Agar `data` mein 4 elements hain, toh valid index kis range mein hoga? Kya 5 us range ke andar aata hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "nums = [0, 1, 2, 3, 4]\nprint(nums[7])\nError: IndexError: list index out of range",
+    "output": "If `nums` has 5 elements, what is the range of valid index positions? Does index 7 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "lst = [0, 1, 2, 3, 4, 5]\nprint(lst[6])\nError: IndexError: list index out of range",
+    "output": "If `lst` has 6 elements, what is the range of valid index positions? Does index 6 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndexError bug.",
+    "input": "values = [0, 1, 2, 3, 4, 5, 6]\nprint(values[8])\nError: IndexError: list index out of range",
+    "output": "Agar `values` mein 7 elements hain, toh valid index kis range mein hoga? Kya 8 us range ke andar aata hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "items = [0, 1, 2]\nprint(items[5])\nError: IndexError: list index out of range",
+    "output": "If `items` has 3 elements, what is the range of valid index positions? Does index 5 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "records = [0, 1, 2, 3]\nprint(records[4])\nError: IndexError: list index out of range",
+    "output": "If `records` has 4 elements, what is the range of valid index positions? Does index 4 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndexError bug.",
+    "input": "scores = [0, 1, 2, 3, 4]\nprint(scores[6])\nError: IndexError: list index out of range",
+    "output": "Agar `scores` mein 5 elements hain, toh valid index kis range mein hoga? Kya 6 us range ke andar aata hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "temp = [0, 1, 2, 3, 4, 5]\nprint(temp[8])\nError: IndexError: list index out of range",
+    "output": "If `temp` has 6 elements, what is the range of valid index positions? Does index 8 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "result = [0, 1, 2, 3, 4, 5, 6]\nprint(result[7])\nError: IndexError: list index out of range",
+    "output": "If `result` has 7 elements, what is the range of valid index positions? Does index 7 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "stack_list = [0, 1, 2]\nprint(stack_list[4])\nError: IndexError: list index out of range",
+    "output": "If `stack_list` has 3 elements, what is the range of valid index positions? Does index 4 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndexError bug.",
+    "input": "queue_list = [0, 1, 2, 3]\nprint(queue_list[6])\nError: IndexError: list index out of range",
+    "output": "Agar `queue_list` mein 4 elements hain, toh valid index kis range mein hoga? Kya 6 us range ke andar aata hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "student_marks = [0, 1, 2, 3, 4]\nprint(student_marks[5])\nError: IndexError: list index out of range",
+    "output": "If `student_marks` has 5 elements, what is the range of valid index positions? Does index 5 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "matrix_row = [0, 1, 2, 3, 4, 5]\nprint(matrix_row[7])\nError: IndexError: list index out of range",
+    "output": "If `matrix_row` has 6 elements, what is the range of valid index positions? Does index 7 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndexError bug.",
+    "input": "buffer = [0, 1, 2, 3, 4, 5, 6]\nprint(buffer[9])\nError: IndexError: list index out of range",
+    "output": "Agar `buffer` mein 7 elements hain, toh valid index kis range mein hoga? Kya 9 us range ke andar aata hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "cache_list = [0, 1, 2]\nprint(cache_list[3])\nError: IndexError: list index out of range",
+    "output": "If `cache_list` has 3 elements, what is the range of valid index positions? Does index 3 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "arr = [0, 1, 2, 3]\nprint(arr[5])\nError: IndexError: list index out of range",
+    "output": "If `arr` has 4 elements, what is the range of valid index positions? Does index 5 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndexError bug.",
+    "input": "data = [0, 1, 2, 3, 4]\nprint(data[7])\nError: IndexError: list index out of range",
+    "output": "Agar `data` mein 5 elements hain, toh valid index kis range mein hoga? Kya 7 us range ke andar aata hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "nums = [0, 1, 2, 3, 4, 5]\nprint(nums[6])\nError: IndexError: list index out of range",
+    "output": "If `nums` has 6 elements, what is the range of valid index positions? Does index 6 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "lst = [0, 1, 2, 3, 4, 5, 6]\nprint(lst[8])\nError: IndexError: list index out of range",
+    "output": "If `lst` has 7 elements, what is the range of valid index positions? Does index 8 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "values = [0, 1, 2]\nprint(values[5])\nError: IndexError: list index out of range",
+    "output": "If `values` has 3 elements, what is the range of valid index positions? Does index 5 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndexError bug.",
+    "input": "items = [0, 1, 2, 3]\nprint(items[4])\nError: IndexError: list index out of range",
+    "output": "Agar `items` mein 4 elements hain, toh valid index kis range mein hoga? Kya 4 us range ke andar aata hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "records = [0, 1, 2, 3, 4]\nprint(records[6])\nError: IndexError: list index out of range",
+    "output": "If `records` has 5 elements, what is the range of valid index positions? Does index 6 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "scores = [0, 1, 2, 3, 4, 5]\nprint(scores[8])\nError: IndexError: list index out of range",
+    "output": "If `scores` has 6 elements, what is the range of valid index positions? Does index 8 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndexError bug.",
+    "input": "temp = [0, 1, 2, 3, 4, 5, 6]\nprint(temp[7])\nError: IndexError: list index out of range",
+    "output": "Agar `temp` mein 7 elements hain, toh valid index kis range mein hoga? Kya 7 us range ke andar aata hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "result = [0, 1, 2]\nprint(result[4])\nError: IndexError: list index out of range",
+    "output": "If `result` has 3 elements, what is the range of valid index positions? Does index 4 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "stack_list = [0, 1, 2, 3]\nprint(stack_list[6])\nError: IndexError: list index out of range",
+    "output": "If `stack_list` has 4 elements, what is the range of valid index positions? Does index 6 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndexError bug.",
+    "input": "queue_list = [0, 1, 2, 3, 4]\nprint(queue_list[5])\nError: IndexError: list index out of range",
+    "output": "Agar `queue_list` mein 5 elements hain, toh valid index kis range mein hoga? Kya 5 us range ke andar aata hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "student_marks = [0, 1, 2, 3, 4, 5]\nprint(student_marks[7])\nError: IndexError: list index out of range",
+    "output": "If `student_marks` has 6 elements, what is the range of valid index positions? Does index 7 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndexError bug.",
+    "input": "matrix_row = [0, 1, 2, 3, 4, 5, 6]\nprint(matrix_row[9])\nError: IndexError: list index out of range",
+    "output": "If `matrix_row` has 7 elements, what is the range of valid index positions? Does index 9 fall within that range?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "string_val + number_val\nError: TypeError: can only concatenate str (not \"int\") to str",
+    "output": "What data type does `+` expect on both sides here? Are both your variables the same type before you combine them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a TypeError bug.",
+    "input": "process_data(0)\nError: TypeError: 'list' object is not callable",
+    "output": "Function call karne aur list ka element access karne ke liye Python mein alag syntax hota hai - aapne kaunsa use kiya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "None + 5\nError: TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'",
+    "output": "What does a function return by default if it has no explicit return statement? Could that explain the None here?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "sorted(lst, key=lst[0])\nError: TypeError: 'int' object is not callable",
+    "output": "What kind of value does the `key` parameter of `sorted()` expect - a value or a function? What did you pass?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a TypeError bug.",
+    "input": "string_val + number_val\nError: TypeError: can only concatenate str (not \"int\") to str",
+    "output": "`+` operator dono taraf kis type ki value expect karta hai? Combine karne se pehle kya aapne dono variables ka type check kiya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "validate_input(0)\nError: TypeError: 'list' object is not callable",
+    "output": "What symbol in Python is used to call a function versus to index into a list? Which one did you use here?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "None + 5\nError: TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'  # variant 1",
+    "output": "What does a function return by default if it has no explicit return statement? Could that explain the None here?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a TypeError bug.",
+    "input": "sorted(scores, key=scores[0])\nError: TypeError: 'int' object is not callable",
+    "output": "`sorted()` ka `key` parameter kis type ki cheez expect karta hai - value ya function? Aapne kya pass kiya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "string_val + number_val\nError: TypeError: can only concatenate str (not \"int\") to str  # variant 1",
+    "output": "What data type does `+` expect on both sides here? Are both your variables the same type before you combine them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "generate_report(0)\nError: TypeError: 'list' object is not callable",
+    "output": "What symbol in Python is used to call a function versus to index into a list? Which one did you use here?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "None + 5\nError: TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'  # variant 2",
+    "output": "What does a function return by default if it has no explicit return statement? Could that explain the None here?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a TypeError bug.",
+    "input": "sorted(queue_list, key=queue_list[0])\nError: TypeError: 'int' object is not callable",
+    "output": "`sorted()` ka `key` parameter kis type ki cheez expect karta hai - value ya function? Aapne kya pass kiya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "string_val + number_val\nError: TypeError: can only concatenate str (not \"int\") to str  # variant 2",
+    "output": "What data type does `+` expect on both sides here? Are both your variables the same type before you combine them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "merge_lists(0)\nError: TypeError: 'list' object is not callable",
+    "output": "What symbol in Python is used to call a function versus to index into a list? Which one did you use here?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a TypeError bug.",
+    "input": "None + 5\nError: TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'",
+    "output": "Agar function mein explicit return statement na ho, toh wo kya return karta hai by default?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "sorted(cache_list, key=cache_list[0])\nError: TypeError: 'int' object is not callable",
+    "output": "What kind of value does the `key` parameter of `sorted()` expect - a value or a function? What did you pass?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "string_val + number_val\nError: TypeError: can only concatenate str (not \"int\") to str  # variant 3",
+    "output": "What data type does `+` expect on both sides here? Are both your variables the same type before you combine them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a TypeError bug.",
+    "input": "update_record(0)\nError: TypeError: 'list' object is not callable",
+    "output": "Function call karne aur list ka element access karne ke liye Python mein alag syntax hota hai - aapne kaunsa use kiya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "None + 5\nError: TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'  # variant 3",
+    "output": "What does a function return by default if it has no explicit return statement? Could that explain the None here?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "sorted(lst, key=lst[0])\nError: TypeError: 'int' object is not callable  # variant 1",
+    "output": "What kind of value does the `key` parameter of `sorted()` expect - a value or a function? What did you pass?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "string_val + number_val\nError: TypeError: can only concatenate str (not \"int\") to str  # variant 4",
+    "output": "What data type does `+` expect on both sides here? Are both your variables the same type before you combine them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a TypeError bug.",
+    "input": "process_data(0)\nError: TypeError: 'list' object is not callable  # variant 1",
+    "output": "Function call karne aur list ka element access karne ke liye Python mein alag syntax hota hai - aapne kaunsa use kiya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "None + 5\nError: TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'  # variant 4",
+    "output": "What does a function return by default if it has no explicit return statement? Could that explain the None here?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "sorted(scores, key=scores[0])\nError: TypeError: 'int' object is not callable",
+    "output": "What kind of value does the `key` parameter of `sorted()` expect - a value or a function? What did you pass?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a TypeError bug.",
+    "input": "string_val + number_val\nError: TypeError: can only concatenate str (not \"int\") to str  # variant 1",
+    "output": "`+` operator dono taraf kis type ki value expect karta hai? Combine karne se pehle kya aapne dono variables ka type check kiya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "validate_input(0)\nError: TypeError: 'list' object is not callable  # variant 1",
+    "output": "What symbol in Python is used to call a function versus to index into a list? Which one did you use here?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "None + 5\nError: TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'  # variant 5",
+    "output": "What does a function return by default if it has no explicit return statement? Could that explain the None here?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a TypeError bug.",
+    "input": "sorted(queue_list, key=queue_list[0])\nError: TypeError: 'int' object is not callable  # variant 1",
+    "output": "`sorted()` ka `key` parameter kis type ki cheez expect karta hai - value ya function? Aapne kya pass kiya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "string_val + number_val\nError: TypeError: can only concatenate str (not \"int\") to str  # variant 5",
+    "output": "What data type does `+` expect on both sides here? Are both your variables the same type before you combine them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a TypeError bug.",
+    "input": "generate_report(0)\nError: TypeError: 'list' object is not callable  # variant 1",
+    "output": "What symbol in Python is used to call a function versus to index into a list? Which one did you use here?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "if x == 5\n    print(x)\nError: SyntaxError: expected ':'",
+    "output": "What punctuation does Python require at the end of an `if` statement line, right before the indented block begins?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a SyntaxError bug.",
+    "input": "def process_data(x, y)\n    return x + y\nError: SyntaxError: expected ':'",
+    "output": "Is function definition ko kisi working example se compare karo - parentheses ke turant baad kya missing hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "print('Hello world)\nError: SyntaxError: unterminated string literal",
+    "output": "Count the quotation marks in your string - does every opening quote have a matching closing quote?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "for i in range(10)\n    print(i)\nError: SyntaxError: expected ':'",
+    "output": "What must follow the condition or range in a `for` loop header before you start the loop body?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a SyntaxError bug.",
+    "input": "if x == 5\n    print(x)\nError: SyntaxError: expected ':'",
+    "output": "Python mein `if` statement ki line khatam hone se pehle kaunsa punctuation zaroori hota hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "def validate_input(x, y)\n    return x + y\nError: SyntaxError: expected ':'",
+    "output": "Compare this function definition to one that works correctly - what character is missing right after the parentheses?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "print('Hello world)\nError: SyntaxError: unterminated string literal  # variant 1",
+    "output": "Count the quotation marks in your string - does every opening quote have a matching closing quote?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a SyntaxError bug.",
+    "input": "for i in range(10)\n    print(i)\nError: SyntaxError: expected ':'",
+    "output": "`for` loop ke header mein range ke baad, loop body shuru hone se pehle kya hona chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "if x == 5\n    print(x)\nError: SyntaxError: expected ':'  # variant 1",
+    "output": "What punctuation does Python require at the end of an `if` statement line, right before the indented block begins?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "def generate_report(x, y)\n    return x + y\nError: SyntaxError: expected ':'",
+    "output": "Compare this function definition to one that works correctly - what character is missing right after the parentheses?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "print('Hello world)\nError: SyntaxError: unterminated string literal  # variant 2",
+    "output": "Count the quotation marks in your string - does every opening quote have a matching closing quote?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a SyntaxError bug.",
+    "input": "for i in range(10)\n    print(i)\nError: SyntaxError: expected ':'  # variant 1",
+    "output": "`for` loop ke header mein range ke baad, loop body shuru hone se pehle kya hona chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "if x == 5\n    print(x)\nError: SyntaxError: expected ':'  # variant 2",
+    "output": "What punctuation does Python require at the end of an `if` statement line, right before the indented block begins?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "def merge_lists(x, y)\n    return x + y\nError: SyntaxError: expected ':'",
+    "output": "Compare this function definition to one that works correctly - what character is missing right after the parentheses?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a SyntaxError bug.",
+    "input": "print('Hello world)\nError: SyntaxError: unterminated string literal",
+    "output": "Apne string mein quotation marks ginkar dekho - kya har opening quote ka ek matching closing quote hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "for i in range(10)\n    print(i)\nError: SyntaxError: expected ':'  # variant 1",
+    "output": "What must follow the condition or range in a `for` loop header before you start the loop body?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "if x == 5\n    print(x)\nError: SyntaxError: expected ':'  # variant 3",
+    "output": "What punctuation does Python require at the end of an `if` statement line, right before the indented block begins?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a SyntaxError bug.",
+    "input": "def update_record(x, y)\n    return x + y\nError: SyntaxError: expected ':'",
+    "output": "Is function definition ko kisi working example se compare karo - parentheses ke turant baad kya missing hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "print('Hello world)\nError: SyntaxError: unterminated string literal  # variant 3",
+    "output": "Count the quotation marks in your string - does every opening quote have a matching closing quote?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "for i in range(10)\n    print(i)\nError: SyntaxError: expected ':'  # variant 2",
+    "output": "What must follow the condition or range in a `for` loop header before you start the loop body?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "if x == 5\n    print(x)\nError: SyntaxError: expected ':'  # variant 4",
+    "output": "What punctuation does Python require at the end of an `if` statement line, right before the indented block begins?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a SyntaxError bug.",
+    "input": "def process_data(x, y)\n    return x + y\nError: SyntaxError: expected ':'  # variant 1",
+    "output": "Is function definition ko kisi working example se compare karo - parentheses ke turant baad kya missing hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "print('Hello world)\nError: SyntaxError: unterminated string literal  # variant 4",
+    "output": "Count the quotation marks in your string - does every opening quote have a matching closing quote?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "for i in range(10)\n    print(i)\nError: SyntaxError: expected ':'  # variant 3",
+    "output": "What must follow the condition or range in a `for` loop header before you start the loop body?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a SyntaxError bug.",
+    "input": "if x == 5\n    print(x)\nError: SyntaxError: expected ':'  # variant 1",
+    "output": "Python mein `if` statement ki line khatam hone se pehle kaunsa punctuation zaroori hota hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "def validate_input(x, y)\n    return x + y\nError: SyntaxError: expected ':'  # variant 1",
+    "output": "Compare this function definition to one that works correctly - what character is missing right after the parentheses?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "print('Hello world)\nError: SyntaxError: unterminated string literal  # variant 5",
+    "output": "Count the quotation marks in your string - does every opening quote have a matching closing quote?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a SyntaxError bug.",
+    "input": "for i in range(10)\n    print(i)\nError: SyntaxError: expected ':'  # variant 2",
+    "output": "`for` loop ke header mein range ke baad, loop body shuru hone se pehle kya hona chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "if x == 5\n    print(x)\nError: SyntaxError: expected ':'  # variant 5",
+    "output": "What punctuation does Python require at the end of an `if` statement line, right before the indented block begins?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a SyntaxError bug.",
+    "input": "def generate_report(x, y)\n    return x + y\nError: SyntaxError: expected ':'  # variant 1",
+    "output": "Compare this function definition to one that works correctly - what character is missing right after the parentheses?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "arr = {\"id\": 1, \"name\": \"Rahul\"}\nprint(arr[\"roll_no\"])\nError: KeyError: \"roll_no\"",
+    "output": "Before accessing `arr[\"roll_no\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a KeyError bug.",
+    "input": "data = {\"id\": 1, \"name\": \"Rahul\"}\nprint(data[\"name\"])\nError: KeyError: \"name\"",
+    "output": "`data[\"name\"]` access karne se pehle, aap kaise check kar sakte ho ki wo key dictionary mein hai bhi ya nahi?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "nums = {\"id\": 1, \"name\": \"Rahul\"}\nprint(nums[\"email\"])\nError: KeyError: \"email\"",
+    "output": "Before accessing `nums[\"email\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "lst = {\"id\": 1, \"name\": \"Rahul\"}\nprint(lst[\"marks\"])\nError: KeyError: \"marks\"",
+    "output": "Before accessing `lst[\"marks\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a KeyError bug.",
+    "input": "values = {\"id\": 1, \"name\": \"Rahul\"}\nprint(values[\"id\"])\nError: KeyError: \"id\"",
+    "output": "`values[\"id\"]` access karne se pehle, aap kaise check kar sakte ho ki wo key dictionary mein hai bhi ya nahi?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "items = {\"id\": 1, \"name\": \"Rahul\"}\nprint(items[\"price\"])\nError: KeyError: \"price\"",
+    "output": "Before accessing `items[\"price\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "records = {\"id\": 1, \"name\": \"Rahul\"}\nprint(records[\"status\"])\nError: KeyError: \"status\"",
+    "output": "Before accessing `records[\"status\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a KeyError bug.",
+    "input": "scores = {\"id\": 1, \"name\": \"Rahul\"}\nprint(scores[\"grade\"])\nError: KeyError: \"grade\"",
+    "output": "`scores[\"grade\"]` access karne se pehle, aap kaise check kar sakte ho ki wo key dictionary mein hai bhi ya nahi?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "temp = {\"id\": 1, \"name\": \"Rahul\"}\nprint(temp[\"roll_no\"])\nError: KeyError: \"roll_no\"",
+    "output": "Before accessing `temp[\"roll_no\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "result = {\"id\": 1, \"name\": \"Rahul\"}\nprint(result[\"name\"])\nError: KeyError: \"name\"",
+    "output": "Before accessing `result[\"name\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "stack_list = {\"id\": 1, \"name\": \"Rahul\"}\nprint(stack_list[\"email\"])\nError: KeyError: \"email\"",
+    "output": "Before accessing `stack_list[\"email\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a KeyError bug.",
+    "input": "queue_list = {\"id\": 1, \"name\": \"Rahul\"}\nprint(queue_list[\"marks\"])\nError: KeyError: \"marks\"",
+    "output": "`queue_list[\"marks\"]` access karne se pehle, aap kaise check kar sakte ho ki wo key dictionary mein hai bhi ya nahi?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "student_marks = {\"id\": 1, \"name\": \"Rahul\"}\nprint(student_marks[\"id\"])\nError: KeyError: \"id\"",
+    "output": "Before accessing `student_marks[\"id\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "matrix_row = {\"id\": 1, \"name\": \"Rahul\"}\nprint(matrix_row[\"price\"])\nError: KeyError: \"price\"",
+    "output": "Before accessing `matrix_row[\"price\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a KeyError bug.",
+    "input": "buffer = {\"id\": 1, \"name\": \"Rahul\"}\nprint(buffer[\"status\"])\nError: KeyError: \"status\"",
+    "output": "`buffer[\"status\"]` access karne se pehle, aap kaise check kar sakte ho ki wo key dictionary mein hai bhi ya nahi?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "cache_list = {\"id\": 1, \"name\": \"Rahul\"}\nprint(cache_list[\"grade\"])\nError: KeyError: \"grade\"",
+    "output": "Before accessing `cache_list[\"grade\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "arr = {\"id\": 1, \"name\": \"Rahul\"}\nprint(arr[\"roll_no\"])\nError: KeyError: \"roll_no\"  # variant 1",
+    "output": "Before accessing `arr[\"roll_no\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a KeyError bug.",
+    "input": "data = {\"id\": 1, \"name\": \"Rahul\"}\nprint(data[\"name\"])\nError: KeyError: \"name\"  # variant 1",
+    "output": "`data[\"name\"]` access karne se pehle, aap kaise check kar sakte ho ki wo key dictionary mein hai bhi ya nahi?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "nums = {\"id\": 1, \"name\": \"Rahul\"}\nprint(nums[\"email\"])\nError: KeyError: \"email\"  # variant 1",
+    "output": "Before accessing `nums[\"email\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "lst = {\"id\": 1, \"name\": \"Rahul\"}\nprint(lst[\"marks\"])\nError: KeyError: \"marks\"  # variant 1",
+    "output": "Before accessing `lst[\"marks\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "values = {\"id\": 1, \"name\": \"Rahul\"}\nprint(values[\"id\"])\nError: KeyError: \"id\"",
+    "output": "Before accessing `values[\"id\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a KeyError bug.",
+    "input": "items = {\"id\": 1, \"name\": \"Rahul\"}\nprint(items[\"price\"])\nError: KeyError: \"price\"",
+    "output": "`items[\"price\"]` access karne se pehle, aap kaise check kar sakte ho ki wo key dictionary mein hai bhi ya nahi?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "records = {\"id\": 1, \"name\": \"Rahul\"}\nprint(records[\"status\"])\nError: KeyError: \"status\"  # variant 1",
+    "output": "Before accessing `records[\"status\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "scores = {\"id\": 1, \"name\": \"Rahul\"}\nprint(scores[\"grade\"])\nError: KeyError: \"grade\"",
+    "output": "Before accessing `scores[\"grade\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a KeyError bug.",
+    "input": "temp = {\"id\": 1, \"name\": \"Rahul\"}\nprint(temp[\"roll_no\"])\nError: KeyError: \"roll_no\"",
+    "output": "`temp[\"roll_no\"]` access karne se pehle, aap kaise check kar sakte ho ki wo key dictionary mein hai bhi ya nahi?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "result = {\"id\": 1, \"name\": \"Rahul\"}\nprint(result[\"name\"])\nError: KeyError: \"name\"  # variant 1",
+    "output": "Before accessing `result[\"name\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "stack_list = {\"id\": 1, \"name\": \"Rahul\"}\nprint(stack_list[\"email\"])\nError: KeyError: \"email\"  # variant 1",
+    "output": "Before accessing `stack_list[\"email\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a KeyError bug.",
+    "input": "queue_list = {\"id\": 1, \"name\": \"Rahul\"}\nprint(queue_list[\"marks\"])\nError: KeyError: \"marks\"  # variant 1",
+    "output": "`queue_list[\"marks\"]` access karne se pehle, aap kaise check kar sakte ho ki wo key dictionary mein hai bhi ya nahi?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "student_marks = {\"id\": 1, \"name\": \"Rahul\"}\nprint(student_marks[\"id\"])\nError: KeyError: \"id\"  # variant 1",
+    "output": "Before accessing `student_marks[\"id\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a KeyError bug.",
+    "input": "matrix_row = {\"id\": 1, \"name\": \"Rahul\"}\nprint(matrix_row[\"price\"])\nError: KeyError: \"price\"  # variant 1",
+    "output": "Before accessing `matrix_row[\"price\"]`, how could you check whether that key actually exists in the dictionary?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 10 / arr_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `arr_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a ZeroDivisionError bug.",
+    "input": "average = 11 / data_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "Division hone se pehle `data_count` ki value kya hai? Agar wo zero ho jaye toh code mein kya hona chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 12 / nums_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `nums_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 13 / lst_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `lst_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a ZeroDivisionError bug.",
+    "input": "average = 14 / values_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "Division hone se pehle `values_count` ki value kya hai? Agar wo zero ho jaye toh code mein kya hona chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 15 / items_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `items_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 16 / records_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `records_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a ZeroDivisionError bug.",
+    "input": "average = 17 / scores_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "Division hone se pehle `scores_count` ki value kya hai? Agar wo zero ho jaye toh code mein kya hona chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 18 / temp_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `temp_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 19 / result_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `result_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 20 / stack_list_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `stack_list_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a ZeroDivisionError bug.",
+    "input": "average = 21 / queue_list_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "Division hone se pehle `queue_list_count` ki value kya hai? Agar wo zero ho jaye toh code mein kya hona chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 22 / student_marks_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `student_marks_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 23 / matrix_row_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `matrix_row_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a ZeroDivisionError bug.",
+    "input": "average = 24 / buffer_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "Division hone se pehle `buffer_count` ki value kya hai? Agar wo zero ho jaye toh code mein kya hona chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 25 / cache_list_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `cache_list_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 26 / arr_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `arr_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a ZeroDivisionError bug.",
+    "input": "average = 27 / data_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "Division hone se pehle `data_count` ki value kya hai? Agar wo zero ho jaye toh code mein kya hona chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 28 / nums_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `nums_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 29 / lst_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `lst_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 30 / values_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `values_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a ZeroDivisionError bug.",
+    "input": "average = 31 / items_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "Division hone se pehle `items_count` ki value kya hai? Agar wo zero ho jaye toh code mein kya hona chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 32 / records_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `records_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 33 / scores_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `scores_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a ZeroDivisionError bug.",
+    "input": "average = 34 / temp_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "Division hone se pehle `temp_count` ki value kya hai? Agar wo zero ho jaye toh code mein kya hona chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 35 / result_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `result_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 36 / stack_list_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `stack_list_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a ZeroDivisionError bug.",
+    "input": "average = 37 / queue_list_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "Division hone se pehle `queue_list_count` ki value kya hai? Agar wo zero ho jaye toh code mein kya hona chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 38 / student_marks_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `student_marks_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a ZeroDivisionError bug.",
+    "input": "average = 39 / matrix_row_count\nprint(average)\nError: ZeroDivisionError: division by zero",
+    "output": "What value does `matrix_row_count` hold right before this division? What should happen in your code if that value turns out to be zero?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "arr = Student()\narr.length()\nError: AttributeError: 'Student' object has no attribute 'length'",
+    "output": "Does the `Student` class actually define a method or attribute called `length`? How could you list what Student objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an AttributeError bug.",
+    "input": "data = BankAccount()\ndata.size()\nError: AttributeError: 'BankAccount' object has no attribute 'size'",
+    "output": "Kya `BankAccount` class mein `size` naam ka method ya attribute define kiya gaya hai? Aap kaise pata karoge BankAccount object kya-kya support karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "nums = Employee()\nnums.value()\nError: AttributeError: 'Employee' object has no attribute 'value'",
+    "output": "Does the `Employee` class actually define a method or attribute called `value`? How could you list what Employee objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "lst = Node()\nlst.append_item()\nError: AttributeError: 'Node' object has no attribute 'append_item'",
+    "output": "Does the `Node` class actually define a method or attribute called `append_item`? How could you list what Node objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an AttributeError bug.",
+    "input": "values = Vehicle()\nvalues.get_data()\nError: AttributeError: 'Vehicle' object has no attribute 'get_data'",
+    "output": "Kya `Vehicle` class mein `get_data` naam ka method ya attribute define kiya gaya hai? Aap kaise pata karoge Vehicle object kya-kya support karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "items = Product()\nitems.total()\nError: AttributeError: 'Product' object has no attribute 'total'",
+    "output": "Does the `Product` class actually define a method or attribute called `total`? How could you list what Product objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "records = Library()\nrecords.info()\nError: AttributeError: 'Library' object has no attribute 'info'",
+    "output": "Does the `Library` class actually define a method or attribute called `info`? How could you list what Library objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an AttributeError bug.",
+    "input": "scores = Order()\nscores.count()\nError: AttributeError: 'Order' object has no attribute 'count'",
+    "output": "Kya `Order` class mein `count` naam ka method ya attribute define kiya gaya hai? Aap kaise pata karoge Order object kya-kya support karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "temp = Student()\ntemp.length()\nError: AttributeError: 'Student' object has no attribute 'length'",
+    "output": "Does the `Student` class actually define a method or attribute called `length`? How could you list what Student objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "result = BankAccount()\nresult.size()\nError: AttributeError: 'BankAccount' object has no attribute 'size'",
+    "output": "Does the `BankAccount` class actually define a method or attribute called `size`? How could you list what BankAccount objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "stack_list = Employee()\nstack_list.value()\nError: AttributeError: 'Employee' object has no attribute 'value'",
+    "output": "Does the `Employee` class actually define a method or attribute called `value`? How could you list what Employee objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an AttributeError bug.",
+    "input": "queue_list = Node()\nqueue_list.append_item()\nError: AttributeError: 'Node' object has no attribute 'append_item'",
+    "output": "Kya `Node` class mein `append_item` naam ka method ya attribute define kiya gaya hai? Aap kaise pata karoge Node object kya-kya support karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "student_marks = Vehicle()\nstudent_marks.get_data()\nError: AttributeError: 'Vehicle' object has no attribute 'get_data'",
+    "output": "Does the `Vehicle` class actually define a method or attribute called `get_data`? How could you list what Vehicle objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "matrix_row = Product()\nmatrix_row.total()\nError: AttributeError: 'Product' object has no attribute 'total'",
+    "output": "Does the `Product` class actually define a method or attribute called `total`? How could you list what Product objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an AttributeError bug.",
+    "input": "buffer = Library()\nbuffer.info()\nError: AttributeError: 'Library' object has no attribute 'info'",
+    "output": "Kya `Library` class mein `info` naam ka method ya attribute define kiya gaya hai? Aap kaise pata karoge Library object kya-kya support karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "cache_list = Order()\ncache_list.count()\nError: AttributeError: 'Order' object has no attribute 'count'",
+    "output": "Does the `Order` class actually define a method or attribute called `count`? How could you list what Order objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "arr = Student()\narr.length()\nError: AttributeError: 'Student' object has no attribute 'length'  # variant 1",
+    "output": "Does the `Student` class actually define a method or attribute called `length`? How could you list what Student objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an AttributeError bug.",
+    "input": "data = BankAccount()\ndata.size()\nError: AttributeError: 'BankAccount' object has no attribute 'size'  # variant 1",
+    "output": "Kya `BankAccount` class mein `size` naam ka method ya attribute define kiya gaya hai? Aap kaise pata karoge BankAccount object kya-kya support karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "nums = Employee()\nnums.value()\nError: AttributeError: 'Employee' object has no attribute 'value'  # variant 1",
+    "output": "Does the `Employee` class actually define a method or attribute called `value`? How could you list what Employee objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "lst = Node()\nlst.append_item()\nError: AttributeError: 'Node' object has no attribute 'append_item'  # variant 1",
+    "output": "Does the `Node` class actually define a method or attribute called `append_item`? How could you list what Node objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "values = Vehicle()\nvalues.get_data()\nError: AttributeError: 'Vehicle' object has no attribute 'get_data'",
+    "output": "Does the `Vehicle` class actually define a method or attribute called `get_data`? How could you list what Vehicle objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an AttributeError bug.",
+    "input": "items = Product()\nitems.total()\nError: AttributeError: 'Product' object has no attribute 'total'",
+    "output": "Kya `Product` class mein `total` naam ka method ya attribute define kiya gaya hai? Aap kaise pata karoge Product object kya-kya support karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "records = Library()\nrecords.info()\nError: AttributeError: 'Library' object has no attribute 'info'  # variant 1",
+    "output": "Does the `Library` class actually define a method or attribute called `info`? How could you list what Library objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "scores = Order()\nscores.count()\nError: AttributeError: 'Order' object has no attribute 'count'",
+    "output": "Does the `Order` class actually define a method or attribute called `count`? How could you list what Order objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an AttributeError bug.",
+    "input": "temp = Student()\ntemp.length()\nError: AttributeError: 'Student' object has no attribute 'length'",
+    "output": "Kya `Student` class mein `length` naam ka method ya attribute define kiya gaya hai? Aap kaise pata karoge Student object kya-kya support karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "result = BankAccount()\nresult.size()\nError: AttributeError: 'BankAccount' object has no attribute 'size'  # variant 1",
+    "output": "Does the `BankAccount` class actually define a method or attribute called `size`? How could you list what BankAccount objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "stack_list = Employee()\nstack_list.value()\nError: AttributeError: 'Employee' object has no attribute 'value'  # variant 1",
+    "output": "Does the `Employee` class actually define a method or attribute called `value`? How could you list what Employee objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an AttributeError bug.",
+    "input": "queue_list = Node()\nqueue_list.append_item()\nError: AttributeError: 'Node' object has no attribute 'append_item'  # variant 1",
+    "output": "Kya `Node` class mein `append_item` naam ka method ya attribute define kiya gaya hai? Aap kaise pata karoge Node object kya-kya support karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "student_marks = Vehicle()\nstudent_marks.get_data()\nError: AttributeError: 'Vehicle' object has no attribute 'get_data'  # variant 1",
+    "output": "Does the `Vehicle` class actually define a method or attribute called `get_data`? How could you list what Vehicle objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an AttributeError bug.",
+    "input": "matrix_row = Product()\nmatrix_row.total()\nError: AttributeError: 'Product' object has no attribute 'total'  # variant 1",
+    "output": "Does the `Product` class actually define a method or attribute called `total`? How could you list what Product objects support?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def calculate_total(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndentationError bug.",
+    "input": "def process_data(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level",
+    "output": "Function ke andar har line se pehle kitne spaces hain, dhyan se dekho. Kya same level ki lines ka indentation consistent hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def find_max(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def merge_lists(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndentationError bug.",
+    "input": "def compute_average(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level",
+    "output": "Function ke andar har line se pehle kitne spaces hain, dhyan se dekho. Kya same level ki lines ka indentation consistent hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def validate_input(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def traverse_tree(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndentationError bug.",
+    "input": "def update_record(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level",
+    "output": "Function ke andar har line se pehle kitne spaces hain, dhyan se dekho. Kya same level ki lines ka indentation consistent hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def parse_line(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def generate_report(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def calculate_total(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 1",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndentationError bug.",
+    "input": "def process_data(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 1",
+    "output": "Function ke andar har line se pehle kitne spaces hain, dhyan se dekho. Kya same level ki lines ka indentation consistent hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def find_max(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 1",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def merge_lists(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 1",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndentationError bug.",
+    "input": "def compute_average(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 1",
+    "output": "Function ke andar har line se pehle kitne spaces hain, dhyan se dekho. Kya same level ki lines ka indentation consistent hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def validate_input(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 1",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def traverse_tree(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 1",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndentationError bug.",
+    "input": "def update_record(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 1",
+    "output": "Function ke andar har line se pehle kitne spaces hain, dhyan se dekho. Kya same level ki lines ka indentation consistent hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def parse_line(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 1",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def generate_report(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 1",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def calculate_total(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 2",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndentationError bug.",
+    "input": "def process_data(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 2",
+    "output": "Function ke andar har line se pehle kitne spaces hain, dhyan se dekho. Kya same level ki lines ka indentation consistent hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def find_max(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 2",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def merge_lists(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 2",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndentationError bug.",
+    "input": "def compute_average(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 2",
+    "output": "Function ke andar har line se pehle kitne spaces hain, dhyan se dekho. Kya same level ki lines ka indentation consistent hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def validate_input(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 2",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def traverse_tree(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 2",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an IndentationError bug.",
+    "input": "def update_record(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 2",
+    "output": "Function ke andar har line se pehle kitne spaces hain, dhyan se dekho. Kya same level ki lines ka indentation consistent hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def parse_line(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 2",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an IndentationError bug.",
+    "input": "def generate_report(n):\n  if n > 0:\n      return n\n    else:\n      return 0\nError: IndentationError: unindent does not match any outer indentation level  # variant 2",
+    "output": "Look at the number of spaces before each line inside this function. Are the indentation levels consistent for lines at the same logical level?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(arr_total)\n\nshow()\nError: NameError: name 'arr_total' is not defined",
+    "output": "Where was `arr_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a NameError bug.",
+    "input": "def show():\n    print(data_total)\n\nshow()\nError: NameError: name 'data_total' is not defined",
+    "output": "`data_total` kahan create hua tha - is function ke andar, bahar, ya kahin bhi nahi? Kya wo location use karne wali jagah se match karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(nums_total)\n\nshow()\nError: NameError: name 'nums_total' is not defined",
+    "output": "Where was `nums_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(lst_total)\n\nshow()\nError: NameError: name 'lst_total' is not defined",
+    "output": "Where was `lst_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a NameError bug.",
+    "input": "def show():\n    print(values_total)\n\nshow()\nError: NameError: name 'values_total' is not defined",
+    "output": "`values_total` kahan create hua tha - is function ke andar, bahar, ya kahin bhi nahi? Kya wo location use karne wali jagah se match karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(items_total)\n\nshow()\nError: NameError: name 'items_total' is not defined",
+    "output": "Where was `items_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(records_total)\n\nshow()\nError: NameError: name 'records_total' is not defined",
+    "output": "Where was `records_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a NameError bug.",
+    "input": "def show():\n    print(scores_total)\n\nshow()\nError: NameError: name 'scores_total' is not defined",
+    "output": "`scores_total` kahan create hua tha - is function ke andar, bahar, ya kahin bhi nahi? Kya wo location use karne wali jagah se match karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(temp_total)\n\nshow()\nError: NameError: name 'temp_total' is not defined",
+    "output": "Where was `temp_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(result_total)\n\nshow()\nError: NameError: name 'result_total' is not defined",
+    "output": "Where was `result_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(stack_list_total)\n\nshow()\nError: NameError: name 'stack_list_total' is not defined",
+    "output": "Where was `stack_list_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a NameError bug.",
+    "input": "def show():\n    print(queue_list_total)\n\nshow()\nError: NameError: name 'queue_list_total' is not defined",
+    "output": "`queue_list_total` kahan create hua tha - is function ke andar, bahar, ya kahin bhi nahi? Kya wo location use karne wali jagah se match karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(student_marks_total)\n\nshow()\nError: NameError: name 'student_marks_total' is not defined",
+    "output": "Where was `student_marks_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(matrix_row_total)\n\nshow()\nError: NameError: name 'matrix_row_total' is not defined",
+    "output": "Where was `matrix_row_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a NameError bug.",
+    "input": "def show():\n    print(buffer_total)\n\nshow()\nError: NameError: name 'buffer_total' is not defined",
+    "output": "`buffer_total` kahan create hua tha - is function ke andar, bahar, ya kahin bhi nahi? Kya wo location use karne wali jagah se match karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(cache_list_total)\n\nshow()\nError: NameError: name 'cache_list_total' is not defined",
+    "output": "Where was `cache_list_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(arr_total)\n\nshow()\nError: NameError: name 'arr_total' is not defined  # variant 1",
+    "output": "Where was `arr_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a NameError bug.",
+    "input": "def show():\n    print(data_total)\n\nshow()\nError: NameError: name 'data_total' is not defined  # variant 1",
+    "output": "`data_total` kahan create hua tha - is function ke andar, bahar, ya kahin bhi nahi? Kya wo location use karne wali jagah se match karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(nums_total)\n\nshow()\nError: NameError: name 'nums_total' is not defined  # variant 1",
+    "output": "Where was `nums_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(lst_total)\n\nshow()\nError: NameError: name 'lst_total' is not defined  # variant 1",
+    "output": "Where was `lst_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(values_total)\n\nshow()\nError: NameError: name 'values_total' is not defined",
+    "output": "Where was `values_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a NameError bug.",
+    "input": "def show():\n    print(items_total)\n\nshow()\nError: NameError: name 'items_total' is not defined",
+    "output": "`items_total` kahan create hua tha - is function ke andar, bahar, ya kahin bhi nahi? Kya wo location use karne wali jagah se match karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(records_total)\n\nshow()\nError: NameError: name 'records_total' is not defined  # variant 1",
+    "output": "Where was `records_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(scores_total)\n\nshow()\nError: NameError: name 'scores_total' is not defined",
+    "output": "Where was `scores_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a NameError bug.",
+    "input": "def show():\n    print(temp_total)\n\nshow()\nError: NameError: name 'temp_total' is not defined",
+    "output": "`temp_total` kahan create hua tha - is function ke andar, bahar, ya kahin bhi nahi? Kya wo location use karne wali jagah se match karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(result_total)\n\nshow()\nError: NameError: name 'result_total' is not defined  # variant 1",
+    "output": "Where was `result_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(stack_list_total)\n\nshow()\nError: NameError: name 'stack_list_total' is not defined  # variant 1",
+    "output": "Where was `stack_list_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a NameError bug.",
+    "input": "def show():\n    print(queue_list_total)\n\nshow()\nError: NameError: name 'queue_list_total' is not defined  # variant 1",
+    "output": "`queue_list_total` kahan create hua tha - is function ke andar, bahar, ya kahin bhi nahi? Kya wo location use karne wali jagah se match karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a NameError bug.",
+    "input": "def show():\n    print(student_marks_total)\n\nshow()\nError: NameError: name 'student_marks_total' is not defined  # variant 1",
+    "output": "Where was `student_marks_total` created - inside this function, outside it, or nowhere at all? Does that location match where you're trying to use it?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "arr_count = 0\ndef increment():\n    arr_count += 1\n    return arr_count\nincrement()\nError: UnboundLocalError: local variable 'arr_count' referenced before assignment",
+    "output": "When you write `arr_count += 1` inside this function, does Python treat `arr_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "data_count = 0\ndef increment():\n    data_count += 1\n    return data_count\nincrement()\nError: UnboundLocalError: local variable 'data_count' referenced before assignment",
+    "output": "When you write `data_count += 1` inside this function, does Python treat `data_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an UnboundLocalError bug.",
+    "input": "nums_count = 0\ndef increment():\n    nums_count += 1\n    return nums_count\nincrement()\nError: UnboundLocalError: local variable 'nums_count' referenced before assignment",
+    "output": "Function ke andar `nums_count += 1` likhne par, Python `nums_count` ko local maanta hai ya outer wala? Isse badalne ke liye kaunsa keyword use hota hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "lst_count = 0\ndef increment():\n    lst_count += 1\n    return lst_count\nincrement()\nError: UnboundLocalError: local variable 'lst_count' referenced before assignment",
+    "output": "When you write `lst_count += 1` inside this function, does Python treat `lst_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "values_count = 0\ndef increment():\n    values_count += 1\n    return values_count\nincrement()\nError: UnboundLocalError: local variable 'values_count' referenced before assignment",
+    "output": "When you write `values_count += 1` inside this function, does Python treat `values_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an UnboundLocalError bug.",
+    "input": "items_count = 0\ndef increment():\n    items_count += 1\n    return items_count\nincrement()\nError: UnboundLocalError: local variable 'items_count' referenced before assignment",
+    "output": "Function ke andar `items_count += 1` likhne par, Python `items_count` ko local maanta hai ya outer wala? Isse badalne ke liye kaunsa keyword use hota hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "records_count = 0\ndef increment():\n    records_count += 1\n    return records_count\nincrement()\nError: UnboundLocalError: local variable 'records_count' referenced before assignment",
+    "output": "When you write `records_count += 1` inside this function, does Python treat `records_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "scores_count = 0\ndef increment():\n    scores_count += 1\n    return scores_count\nincrement()\nError: UnboundLocalError: local variable 'scores_count' referenced before assignment",
+    "output": "When you write `scores_count += 1` inside this function, does Python treat `scores_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an UnboundLocalError bug.",
+    "input": "temp_count = 0\ndef increment():\n    temp_count += 1\n    return temp_count\nincrement()\nError: UnboundLocalError: local variable 'temp_count' referenced before assignment",
+    "output": "Function ke andar `temp_count += 1` likhne par, Python `temp_count` ko local maanta hai ya outer wala? Isse badalne ke liye kaunsa keyword use hota hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "result_count = 0\ndef increment():\n    result_count += 1\n    return result_count\nincrement()\nError: UnboundLocalError: local variable 'result_count' referenced before assignment",
+    "output": "When you write `result_count += 1` inside this function, does Python treat `result_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "stack_list_count = 0\ndef increment():\n    stack_list_count += 1\n    return stack_list_count\nincrement()\nError: UnboundLocalError: local variable 'stack_list_count' referenced before assignment",
+    "output": "When you write `stack_list_count += 1` inside this function, does Python treat `stack_list_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "queue_list_count = 0\ndef increment():\n    queue_list_count += 1\n    return queue_list_count\nincrement()\nError: UnboundLocalError: local variable 'queue_list_count' referenced before assignment",
+    "output": "When you write `queue_list_count += 1` inside this function, does Python treat `queue_list_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an UnboundLocalError bug.",
+    "input": "student_marks_count = 0\ndef increment():\n    student_marks_count += 1\n    return student_marks_count\nincrement()\nError: UnboundLocalError: local variable 'student_marks_count' referenced before assignment",
+    "output": "Function ke andar `student_marks_count += 1` likhne par, Python `student_marks_count` ko local maanta hai ya outer wala? Isse badalne ke liye kaunsa keyword use hota hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "matrix_row_count = 0\ndef increment():\n    matrix_row_count += 1\n    return matrix_row_count\nincrement()\nError: UnboundLocalError: local variable 'matrix_row_count' referenced before assignment",
+    "output": "When you write `matrix_row_count += 1` inside this function, does Python treat `matrix_row_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "buffer_count = 0\ndef increment():\n    buffer_count += 1\n    return buffer_count\nincrement()\nError: UnboundLocalError: local variable 'buffer_count' referenced before assignment",
+    "output": "When you write `buffer_count += 1` inside this function, does Python treat `buffer_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an UnboundLocalError bug.",
+    "input": "cache_list_count = 0\ndef increment():\n    cache_list_count += 1\n    return cache_list_count\nincrement()\nError: UnboundLocalError: local variable 'cache_list_count' referenced before assignment",
+    "output": "Function ke andar `cache_list_count += 1` likhne par, Python `cache_list_count` ko local maanta hai ya outer wala? Isse badalne ke liye kaunsa keyword use hota hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "arr_count = 0\ndef increment():\n    arr_count += 1\n    return arr_count\nincrement()\nError: UnboundLocalError: local variable 'arr_count' referenced before assignment  # variant 1",
+    "output": "When you write `arr_count += 1` inside this function, does Python treat `arr_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "data_count = 0\ndef increment():\n    data_count += 1\n    return data_count\nincrement()\nError: UnboundLocalError: local variable 'data_count' referenced before assignment  # variant 1",
+    "output": "When you write `data_count += 1` inside this function, does Python treat `data_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an UnboundLocalError bug.",
+    "input": "nums_count = 0\ndef increment():\n    nums_count += 1\n    return nums_count\nincrement()\nError: UnboundLocalError: local variable 'nums_count' referenced before assignment  # variant 1",
+    "output": "Function ke andar `nums_count += 1` likhne par, Python `nums_count` ko local maanta hai ya outer wala? Isse badalne ke liye kaunsa keyword use hota hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "lst_count = 0\ndef increment():\n    lst_count += 1\n    return lst_count\nincrement()\nError: UnboundLocalError: local variable 'lst_count' referenced before assignment  # variant 1",
+    "output": "When you write `lst_count += 1` inside this function, does Python treat `lst_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "values_count = 0\ndef increment():\n    values_count += 1\n    return values_count\nincrement()\nError: UnboundLocalError: local variable 'values_count' referenced before assignment  # variant 1",
+    "output": "When you write `values_count += 1` inside this function, does Python treat `values_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "items_count = 0\ndef increment():\n    items_count += 1\n    return items_count\nincrement()\nError: UnboundLocalError: local variable 'items_count' referenced before assignment",
+    "output": "When you write `items_count += 1` inside this function, does Python treat `items_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an UnboundLocalError bug.",
+    "input": "records_count = 0\ndef increment():\n    records_count += 1\n    return records_count\nincrement()\nError: UnboundLocalError: local variable 'records_count' referenced before assignment",
+    "output": "Function ke andar `records_count += 1` likhne par, Python `records_count` ko local maanta hai ya outer wala? Isse badalne ke liye kaunsa keyword use hota hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "scores_count = 0\ndef increment():\n    scores_count += 1\n    return scores_count\nincrement()\nError: UnboundLocalError: local variable 'scores_count' referenced before assignment  # variant 1",
+    "output": "When you write `scores_count += 1` inside this function, does Python treat `scores_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "temp_count = 0\ndef increment():\n    temp_count += 1\n    return temp_count\nincrement()\nError: UnboundLocalError: local variable 'temp_count' referenced before assignment",
+    "output": "When you write `temp_count += 1` inside this function, does Python treat `temp_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an UnboundLocalError bug.",
+    "input": "result_count = 0\ndef increment():\n    result_count += 1\n    return result_count\nincrement()\nError: UnboundLocalError: local variable 'result_count' referenced before assignment",
+    "output": "Function ke andar `result_count += 1` likhne par, Python `result_count` ko local maanta hai ya outer wala? Isse badalne ke liye kaunsa keyword use hota hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "stack_list_count = 0\ndef increment():\n    stack_list_count += 1\n    return stack_list_count\nincrement()\nError: UnboundLocalError: local variable 'stack_list_count' referenced before assignment  # variant 1",
+    "output": "When you write `stack_list_count += 1` inside this function, does Python treat `stack_list_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an UnboundLocalError bug.",
+    "input": "queue_list_count = 0\ndef increment():\n    queue_list_count += 1\n    return queue_list_count\nincrement()\nError: UnboundLocalError: local variable 'queue_list_count' referenced before assignment  # variant 1",
+    "output": "When you write `queue_list_count += 1` inside this function, does Python treat `queue_list_count` as a local variable or the outer one? What keyword could change that?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an UnboundLocalError bug.",
+    "input": "student_marks_count = 0\ndef increment():\n    student_marks_count += 1\n    return student_marks_count\nincrement()\nError: UnboundLocalError: local variable 'student_marks_count' referenced before assignment  # variant 1",
+    "output": "Function ke andar `student_marks_count += 1` likhne par, Python `student_marks_count` ko local maanta hai ya outer wala? Isse badalne ke liye kaunsa keyword use hota hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Traversal never stops because the last node's next pointer was not set to None",
+    "output": "What should the `next` reference of the very last node point to, and did you set it explicitly when building the list?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: AttributeError: 'NoneType' object has no attribute 'next' while traversing",
+    "output": "Before calling `.next` on a node, how do you know the node itself isn't already None? What check would prevent this?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Inserting a node at the head does not update the head reference",
+    "output": "After creating the new node and pointing it to the old head, which variable still needs to be reassigned to complete the insertion?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Deleting a node from the middle leaves the list broken",
+    "output": "Node delete karte waqt, chain toote na isliye kaunse do doosre nodes ke pointers reconnect karne padenge?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Traversal never stops because the last node's next pointer was not set to None  # variant 1",
+    "output": "What should the `next` reference of the very last node point to, and did you set it explicitly when building the list?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: AttributeError: 'NoneType' object has no attribute 'next' while traversing  # variant 1",
+    "output": "Before calling `.next` on a node, how do you know the node itself isn't already None? What check would prevent this?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Inserting a node at the head does not update the head reference",
+    "output": "Naya node banane aur use purane head se link karne ke baad, insertion complete karne ke liye kaunsa variable reassign karna baaki hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Deleting a node from the middle leaves the list broken",
+    "output": "When you remove a node, which two other nodes' pointers need to be reconnected so the chain isn't broken?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Traversal never stops because the last node's next pointer was not set to None  # variant 2",
+    "output": "What should the `next` reference of the very last node point to, and did you set it explicitly when building the list?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: AttributeError: 'NoneType' object has no attribute 'next' while traversing",
+    "output": "`.next` call karne se pehle, aapko kaise pata chalega ki node khud None nahi hai? Kaunsa check yeh rok sakta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Inserting a node at the head does not update the head reference  # variant 1",
+    "output": "After creating the new node and pointing it to the old head, which variable still needs to be reassigned to complete the insertion?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Deleting a node from the middle leaves the list broken  # variant 1",
+    "output": "When you remove a node, which two other nodes' pointers need to be reconnected so the chain isn't broken?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Traversal never stops because the last node's next pointer was not set to None  # variant 3",
+    "output": "What should the `next` reference of the very last node point to, and did you set it explicitly when building the list?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: AttributeError: 'NoneType' object has no attribute 'next' while traversing  # variant 1",
+    "output": "`.next` call karne se pehle, aapko kaise pata chalega ki node khud None nahi hai? Kaunsa check yeh rok sakta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Inserting a node at the head does not update the head reference  # variant 2",
+    "output": "After creating the new node and pointing it to the old head, which variable still needs to be reassigned to complete the insertion?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Deleting a node from the middle leaves the list broken  # variant 2",
+    "output": "When you remove a node, which two other nodes' pointers need to be reconnected so the chain isn't broken?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Traversal never stops because the last node's next pointer was not set to None",
+    "output": "List ke sabse aakhri node ka `next` kis cheez ki taraf point karna chahiye, aur kya aapne wo explicitly set kiya?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: AttributeError: 'NoneType' object has no attribute 'next' while traversing  # variant 2",
+    "output": "Before calling `.next` on a node, how do you know the node itself isn't already None? What check would prevent this?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Inserting a node at the head does not update the head reference  # variant 3",
+    "output": "After creating the new node and pointing it to the old head, which variable still needs to be reassigned to complete the insertion?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Deleting a node from the middle leaves the list broken  # variant 1",
+    "output": "Node delete karte waqt, chain toote na isliye kaunse do doosre nodes ke pointers reconnect karne padenge?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Traversal never stops because the last node's next pointer was not set to None  # variant 4",
+    "output": "What should the `next` reference of the very last node point to, and did you set it explicitly when building the list?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: AttributeError: 'NoneType' object has no attribute 'next' while traversing  # variant 3",
+    "output": "Before calling `.next` on a node, how do you know the node itself isn't already None? What check would prevent this?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Inserting a node at the head does not update the head reference  # variant 4",
+    "output": "After creating the new node and pointing it to the old head, which variable still needs to be reassigned to complete the insertion?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Deleting a node from the middle leaves the list broken  # variant 2",
+    "output": "Node delete karte waqt, chain toote na isliye kaunse do doosre nodes ke pointers reconnect karne padenge?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Traversal never stops because the last node's next pointer was not set to None  # variant 5",
+    "output": "What should the `next` reference of the very last node point to, and did you set it explicitly when building the list?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: AttributeError: 'NoneType' object has no attribute 'next' while traversing  # variant 4",
+    "output": "Before calling `.next` on a node, how do you know the node itself isn't already None? What check would prevent this?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Inserting a node at the head does not update the head reference  # variant 1",
+    "output": "Naya node banane aur use purane head se link karne ke baad, insertion complete karne ke liye kaunsa variable reassign karna baaki hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Deleting a node from the middle leaves the list broken  # variant 3",
+    "output": "When you remove a node, which two other nodes' pointers need to be reconnected so the chain isn't broken?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Linked Lists bug.",
+    "input": "Bug scenario in singly linked list implementation: Traversal never stops because the last node's next pointer was not set to None  # variant 6",
+    "output": "What should the `next` reference of the very last node point to, and did you set it explicitly when building the list?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Stacks bug.",
+    "input": "IndexError: pop from empty list when executing stack.pop()",
+    "output": "Stack se item nikalne se pehle, kaunsa check karna chahiye ki kam se kam ek element available hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Peek operation returns the wrong element after multiple pushes",
+    "output": "In a stack, which end - the beginning or the end of your underlying list - represents the 'top'? Are you peeking at that same end?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Using a stack to reverse a string gives the original string back unchanged",
+    "output": "If you push every character and then pop them one by one, in what order do they come back out? Does that match what reversal needs?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Balanced parentheses checker returns True for unbalanced input '(()'",
+    "output": "At the very end of processing the whole string, what should the state of the stack be for the parentheses to be considered balanced?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Stacks bug.",
+    "input": "IndexError: pop from empty list when executing stack.pop()  # variant 1",
+    "output": "Stack se item nikalne se pehle, kaunsa check karna chahiye ki kam se kam ek element available hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Peek operation returns the wrong element after multiple pushes  # variant 1",
+    "output": "In a stack, which end - the beginning or the end of your underlying list - represents the 'top'? Are you peeking at that same end?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Using a stack to reverse a string gives the original string back unchanged  # variant 1",
+    "output": "If you push every character and then pop them one by one, in what order do they come back out? Does that match what reversal needs?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Stacks bug.",
+    "input": "Balanced parentheses checker returns True for unbalanced input '(()'",
+    "output": "Poora string process hone ke baad, parentheses balanced maane jaane ke liye stack ki state kya honi chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "IndexError: pop from empty list when executing stack.pop()",
+    "output": "Before removing an item from a stack, what check should you perform to make sure there is at least one element available?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Peek operation returns the wrong element after multiple pushes  # variant 2",
+    "output": "In a stack, which end - the beginning or the end of your underlying list - represents the 'top'? Are you peeking at that same end?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Stacks bug.",
+    "input": "Using a stack to reverse a string gives the original string back unchanged",
+    "output": "Agar har character push karke phir pop karo, toh wo kis order mein wapas aate hain? Kya wo reversal ke liye sahi order hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Balanced parentheses checker returns True for unbalanced input '(()'  # variant 1",
+    "output": "At the very end of processing the whole string, what should the state of the stack be for the parentheses to be considered balanced?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "IndexError: pop from empty list when executing stack.pop()  # variant 1",
+    "output": "Before removing an item from a stack, what check should you perform to make sure there is at least one element available?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Peek operation returns the wrong element after multiple pushes  # variant 3",
+    "output": "In a stack, which end - the beginning or the end of your underlying list - represents the 'top'? Are you peeking at that same end?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Stacks bug.",
+    "input": "Using a stack to reverse a string gives the original string back unchanged  # variant 1",
+    "output": "Agar har character push karke phir pop karo, toh wo kis order mein wapas aate hain? Kya wo reversal ke liye sahi order hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Balanced parentheses checker returns True for unbalanced input '(()'  # variant 2",
+    "output": "At the very end of processing the whole string, what should the state of the stack be for the parentheses to be considered balanced?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "IndexError: pop from empty list when executing stack.pop()  # variant 2",
+    "output": "Before removing an item from a stack, what check should you perform to make sure there is at least one element available?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Stacks bug.",
+    "input": "Peek operation returns the wrong element after multiple pushes",
+    "output": "Stack mein 'top' kaunsa end represent karta hai - list ka start ya end? Kya aap usi end ko peek kar rahe ho?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Using a stack to reverse a string gives the original string back unchanged  # variant 2",
+    "output": "If you push every character and then pop them one by one, in what order do they come back out? Does that match what reversal needs?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Balanced parentheses checker returns True for unbalanced input '(()'  # variant 3",
+    "output": "At the very end of processing the whole string, what should the state of the stack be for the parentheses to be considered balanced?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Stacks bug.",
+    "input": "IndexError: pop from empty list when executing stack.pop()  # variant 2",
+    "output": "Stack se item nikalne se pehle, kaunsa check karna chahiye ki kam se kam ek element available hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Peek operation returns the wrong element after multiple pushes  # variant 4",
+    "output": "In a stack, which end - the beginning or the end of your underlying list - represents the 'top'? Are you peeking at that same end?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Using a stack to reverse a string gives the original string back unchanged  # variant 3",
+    "output": "If you push every character and then pop them one by one, in what order do they come back out? Does that match what reversal needs?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Balanced parentheses checker returns True for unbalanced input '(()'  # variant 4",
+    "output": "At the very end of processing the whole string, what should the state of the stack be for the parentheses to be considered balanced?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Stacks bug.",
+    "input": "IndexError: pop from empty list when executing stack.pop()  # variant 3",
+    "output": "Stack se item nikalne se pehle, kaunsa check karna chahiye ki kam se kam ek element available hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Peek operation returns the wrong element after multiple pushes  # variant 5",
+    "output": "In a stack, which end - the beginning or the end of your underlying list - represents the 'top'? Are you peeking at that same end?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "Using a stack to reverse a string gives the original string back unchanged  # variant 4",
+    "output": "If you push every character and then pop them one by one, in what order do they come back out? Does that match what reversal needs?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Stacks bug.",
+    "input": "Balanced parentheses checker returns True for unbalanced input '(()'  # variant 1",
+    "output": "Poora string process hone ke baad, parentheses balanced maane jaane ke liye stack ki state kya honi chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Stacks bug.",
+    "input": "IndexError: pop from empty list when executing stack.pop()  # variant 3",
+    "output": "Before removing an item from a stack, what check should you perform to make sure there is at least one element available?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Dequeue operation using list.pop(0) works but is very slow on large inputs",
+    "output": "What is the time complexity of removing an element from the front of a plain Python list? Is there a data structure better suited for queue operations?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Queues bug.",
+    "input": "Circular queue overwrites data because front and rear indices are not wrapped correctly",
+    "output": "Jab rear array ke last index tak pahunche, use wapas start (index 0) par laane ke liye kaunsa operation apply karna chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "IndexError: pop from empty list when dequeuing from an empty queue",
+    "output": "How would you check, before dequeuing, whether the queue currently holds zero elements?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Queue implemented with two stacks returns elements in the wrong order",
+    "output": "When moving elements from the input stack to the output stack, what happens to their order? How does that help simulate FIFO behavior?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Dequeue operation using list.pop(0) works but is very slow on large inputs  # variant 1",
+    "output": "What is the time complexity of removing an element from the front of a plain Python list? Is there a data structure better suited for queue operations?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Queues bug.",
+    "input": "Circular queue overwrites data because front and rear indices are not wrapped correctly  # variant 1",
+    "output": "Jab rear array ke last index tak pahunche, use wapas start (index 0) par laane ke liye kaunsa operation apply karna chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "IndexError: pop from empty list when dequeuing from an empty queue  # variant 1",
+    "output": "How would you check, before dequeuing, whether the queue currently holds zero elements?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Queue implemented with two stacks returns elements in the wrong order  # variant 1",
+    "output": "When moving elements from the input stack to the output stack, what happens to their order? How does that help simulate FIFO behavior?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Queues bug.",
+    "input": "Dequeue operation using list.pop(0) works but is very slow on large inputs",
+    "output": "Python list ke front se element remove karne ki time complexity kya hoti hai? Kya koi behtar data structure hai queue operations ke liye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Circular queue overwrites data because front and rear indices are not wrapped correctly",
+    "output": "When rear reaches the last index of the array, what operation should you apply to bring it back to the start (index 0)?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "IndexError: pop from empty list when dequeuing from an empty queue  # variant 2",
+    "output": "How would you check, before dequeuing, whether the queue currently holds zero elements?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Queues bug.",
+    "input": "Queue implemented with two stacks returns elements in the wrong order",
+    "output": "Elements ko input stack se output stack mein move karte waqt unka order kya hota hai? Yeh FIFO simulate karne mein kaise madad karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Dequeue operation using list.pop(0) works but is very slow on large inputs  # variant 2",
+    "output": "What is the time complexity of removing an element from the front of a plain Python list? Is there a data structure better suited for queue operations?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Circular queue overwrites data because front and rear indices are not wrapped correctly  # variant 1",
+    "output": "When rear reaches the last index of the array, what operation should you apply to bring it back to the start (index 0)?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "IndexError: pop from empty list when dequeuing from an empty queue  # variant 3",
+    "output": "How would you check, before dequeuing, whether the queue currently holds zero elements?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Queues bug.",
+    "input": "Queue implemented with two stacks returns elements in the wrong order  # variant 1",
+    "output": "Elements ko input stack se output stack mein move karte waqt unka order kya hota hai? Yeh FIFO simulate karne mein kaise madad karta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Dequeue operation using list.pop(0) works but is very slow on large inputs  # variant 3",
+    "output": "What is the time complexity of removing an element from the front of a plain Python list? Is there a data structure better suited for queue operations?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Circular queue overwrites data because front and rear indices are not wrapped correctly  # variant 2",
+    "output": "When rear reaches the last index of the array, what operation should you apply to bring it back to the start (index 0)?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Queues bug.",
+    "input": "IndexError: pop from empty list when dequeuing from an empty queue",
+    "output": "Dequeue karne se pehle, aap kaise check karoge ki queue mein abhi zero elements hain?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Queue implemented with two stacks returns elements in the wrong order  # variant 2",
+    "output": "When moving elements from the input stack to the output stack, what happens to their order? How does that help simulate FIFO behavior?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Dequeue operation using list.pop(0) works but is very slow on large inputs  # variant 4",
+    "output": "What is the time complexity of removing an element from the front of a plain Python list? Is there a data structure better suited for queue operations?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Queues bug.",
+    "input": "Circular queue overwrites data because front and rear indices are not wrapped correctly  # variant 2",
+    "output": "Jab rear array ke last index tak pahunche, use wapas start (index 0) par laane ke liye kaunsa operation apply karna chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "IndexError: pop from empty list when dequeuing from an empty queue  # variant 4",
+    "output": "How would you check, before dequeuing, whether the queue currently holds zero elements?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Queue implemented with two stacks returns elements in the wrong order  # variant 3",
+    "output": "When moving elements from the input stack to the output stack, what happens to their order? How does that help simulate FIFO behavior?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Dequeue operation using list.pop(0) works but is very slow on large inputs  # variant 5",
+    "output": "What is the time complexity of removing an element from the front of a plain Python list? Is there a data structure better suited for queue operations?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Queues bug.",
+    "input": "Circular queue overwrites data because front and rear indices are not wrapped correctly  # variant 3",
+    "output": "Jab rear array ke last index tak pahunche, use wapas start (index 0) par laane ke liye kaunsa operation apply karna chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "IndexError: pop from empty list when dequeuing from an empty queue  # variant 5",
+    "output": "How would you check, before dequeuing, whether the queue currently holds zero elements?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Queues bug.",
+    "input": "Queue implemented with two stacks returns elements in the wrong order  # variant 4",
+    "output": "When moving elements from the input stack to the output stack, what happens to their order? How does that help simulate FIFO behavior?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Queues bug.",
+    "input": "Dequeue operation using list.pop(0) works but is very slow on large inputs  # variant 1",
+    "output": "Python list ke front se element remove karne ki time complexity kya hoti hai? Kya koi behtar data structure hai queue operations ke liye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search never terminates and loops infinitely on a sorted array",
+    "output": "After you narrow the search range, are `low` and `high` guaranteed to move closer together on every iteration? Which line updates them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search returns wrong index for a target that appears multiple times",
+    "output": "When the middle element equals the target, is there more than one correct index that could be considered valid? What does the problem actually require?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Binary Search bug.",
+    "input": "Off-by-one error causes binary search to miss the last element of the array",
+    "output": "`high` calculate karte waqt, kya wo `len(arr)` hona chahiye ya `len(arr) - 1`? Agar `high` last valid index se ek aage point kare toh kya hoga?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search applied to an unsorted array gives incorrect results",
+    "output": "What assumption does binary search make about the order of elements before it starts eliminating halves? Is that assumption true for your input?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search never terminates and loops infinitely on a sorted array  # variant 1",
+    "output": "After you narrow the search range, are `low` and `high` guaranteed to move closer together on every iteration? Which line updates them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search returns wrong index for a target that appears multiple times  # variant 1",
+    "output": "When the middle element equals the target, is there more than one correct index that could be considered valid? What does the problem actually require?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Binary Search bug.",
+    "input": "Off-by-one error causes binary search to miss the last element of the array  # variant 1",
+    "output": "`high` calculate karte waqt, kya wo `len(arr)` hona chahiye ya `len(arr) - 1`? Agar `high` last valid index se ek aage point kare toh kya hoga?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search applied to an unsorted array gives incorrect results  # variant 1",
+    "output": "What assumption does binary search make about the order of elements before it starts eliminating halves? Is that assumption true for your input?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search never terminates and loops infinitely on a sorted array  # variant 2",
+    "output": "After you narrow the search range, are `low` and `high` guaranteed to move closer together on every iteration? Which line updates them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Binary Search bug.",
+    "input": "Binary search returns wrong index for a target that appears multiple times",
+    "output": "Jab middle element target ke barabar ho, kya ek se zyada valid index ho sakte hain? Problem asal mein kya maangti hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Off-by-one error causes binary search to miss the last element of the array",
+    "output": "When you calculate `high`, should it be `len(arr)` or `len(arr) - 1`? What happens if `high` points one past the last valid index?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search applied to an unsorted array gives incorrect results  # variant 2",
+    "output": "What assumption does binary search make about the order of elements before it starts eliminating halves? Is that assumption true for your input?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Binary Search bug.",
+    "input": "Binary search never terminates and loops infinitely on a sorted array",
+    "output": "Search range narrow karne ke baad, kya `low` aur `high` har iteration mein pakka paas aate hain? Kaunsi line unhe update karti hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search returns wrong index for a target that appears multiple times  # variant 2",
+    "output": "When the middle element equals the target, is there more than one correct index that could be considered valid? What does the problem actually require?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Off-by-one error causes binary search to miss the last element of the array  # variant 1",
+    "output": "When you calculate `high`, should it be `len(arr)` or `len(arr) - 1`? What happens if `high` points one past the last valid index?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search applied to an unsorted array gives incorrect results  # variant 3",
+    "output": "What assumption does binary search make about the order of elements before it starts eliminating halves? Is that assumption true for your input?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Binary Search bug.",
+    "input": "Binary search never terminates and loops infinitely on a sorted array  # variant 1",
+    "output": "Search range narrow karne ke baad, kya `low` aur `high` har iteration mein pakka paas aate hain? Kaunsi line unhe update karti hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search returns wrong index for a target that appears multiple times  # variant 3",
+    "output": "When the middle element equals the target, is there more than one correct index that could be considered valid? What does the problem actually require?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Off-by-one error causes binary search to miss the last element of the array  # variant 2",
+    "output": "When you calculate `high`, should it be `len(arr)` or `len(arr) - 1`? What happens if `high` points one past the last valid index?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Binary Search bug.",
+    "input": "Binary search applied to an unsorted array gives incorrect results",
+    "output": "Binary search apna kaam shuru karne se pehle elements ke order ke baare mein kya assume karta hai? Kya yeh assumption aapke input ke liye sach hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search never terminates and loops infinitely on a sorted array  # variant 3",
+    "output": "After you narrow the search range, are `low` and `high` guaranteed to move closer together on every iteration? Which line updates them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search returns wrong index for a target that appears multiple times  # variant 4",
+    "output": "When the middle element equals the target, is there more than one correct index that could be considered valid? What does the problem actually require?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Binary Search bug.",
+    "input": "Off-by-one error causes binary search to miss the last element of the array  # variant 2",
+    "output": "`high` calculate karte waqt, kya wo `len(arr)` hona chahiye ya `len(arr) - 1`? Agar `high` last valid index se ek aage point kare toh kya hoga?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search applied to an unsorted array gives incorrect results  # variant 4",
+    "output": "What assumption does binary search make about the order of elements before it starts eliminating halves? Is that assumption true for your input?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search never terminates and loops infinitely on a sorted array  # variant 4",
+    "output": "After you narrow the search range, are `low` and `high` guaranteed to move closer together on every iteration? Which line updates them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search returns wrong index for a target that appears multiple times  # variant 5",
+    "output": "When the middle element equals the target, is there more than one correct index that could be considered valid? What does the problem actually require?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Binary Search bug.",
+    "input": "Off-by-one error causes binary search to miss the last element of the array  # variant 3",
+    "output": "`high` calculate karte waqt, kya wo `len(arr)` hona chahiye ya `len(arr) - 1`? Agar `high` last valid index se ek aage point kare toh kya hoga?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search applied to an unsorted array gives incorrect results  # variant 5",
+    "output": "What assumption does binary search make about the order of elements before it starts eliminating halves? Is that assumption true for your input?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Binary Search bug.",
+    "input": "Binary search never terminates and loops infinitely on a sorted array  # variant 5",
+    "output": "After you narrow the search range, are `low` and `high` guaranteed to move closer together on every iteration? Which line updates them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Sorting Algorithms bug.",
+    "input": "Bubble sort does not fully sort the array after one pass",
+    "output": "Worst case mein bubble sort ko array ke through kitne complete passes chahiye hote hain? Kya aapka loop utni baar chalta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Selection sort swaps elements even when no swap is needed, causing wrong output",
+    "output": "After finding the minimum element in the unsorted part, what condition should you check before performing the swap?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Insertion sort produces a partially sorted array with one element out of place",
+    "output": "When shifting elements to make room for the key, does your inner loop shift enough elements, or does it stop one step too early?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Sorting Algorithms bug.",
+    "input": "Merge sort recursion never reaches the base case and causes a RecursionError",
+    "output": "Array ki length par kaunsi condition recursive splitting ko rokni chahiye? Kya wo condition present hai aur sahi likhi gayi hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Quicksort has correct logic but runs extremely slowly on already-sorted input",
+    "output": "How does the choice of pivot affect partition sizes when the input is already sorted? What pivot choice could avoid this worst case?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Bubble sort does not fully sort the array after one pass",
+    "output": "How many complete passes through the array are needed in the worst case for bubble sort? Does your loop run that many times?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Selection sort swaps elements even when no swap is needed, causing wrong output  # variant 1",
+    "output": "After finding the minimum element in the unsorted part, what condition should you check before performing the swap?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Sorting Algorithms bug.",
+    "input": "Insertion sort produces a partially sorted array with one element out of place",
+    "output": "Key ke liye jagah banane ke liye elements shift karte waqt, kya inner loop kaafi elements shift karta hai ya ek step pehle hi ruk jaata hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Merge sort recursion never reaches the base case and causes a RecursionError",
+    "output": "What condition on the length of the array should stop the recursive splitting? Is that condition present and correctly written?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Quicksort has correct logic but runs extremely slowly on already-sorted input  # variant 1",
+    "output": "How does the choice of pivot affect partition sizes when the input is already sorted? What pivot choice could avoid this worst case?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Sorting Algorithms bug.",
+    "input": "Bubble sort does not fully sort the array after one pass  # variant 1",
+    "output": "Worst case mein bubble sort ko array ke through kitne complete passes chahiye hote hain? Kya aapka loop utni baar chalta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Selection sort swaps elements even when no swap is needed, causing wrong output  # variant 2",
+    "output": "After finding the minimum element in the unsorted part, what condition should you check before performing the swap?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Insertion sort produces a partially sorted array with one element out of place  # variant 1",
+    "output": "When shifting elements to make room for the key, does your inner loop shift enough elements, or does it stop one step too early?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Sorting Algorithms bug.",
+    "input": "Merge sort recursion never reaches the base case and causes a RecursionError  # variant 1",
+    "output": "Array ki length par kaunsi condition recursive splitting ko rokni chahiye? Kya wo condition present hai aur sahi likhi gayi hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Quicksort has correct logic but runs extremely slowly on already-sorted input  # variant 2",
+    "output": "How does the choice of pivot affect partition sizes when the input is already sorted? What pivot choice could avoid this worst case?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Bubble sort does not fully sort the array after one pass  # variant 1",
+    "output": "How many complete passes through the array are needed in the worst case for bubble sort? Does your loop run that many times?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Selection sort swaps elements even when no swap is needed, causing wrong output  # variant 3",
+    "output": "After finding the minimum element in the unsorted part, what condition should you check before performing the swap?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Sorting Algorithms bug.",
+    "input": "Insertion sort produces a partially sorted array with one element out of place  # variant 1",
+    "output": "Key ke liye jagah banane ke liye elements shift karte waqt, kya inner loop kaafi elements shift karta hai ya ek step pehle hi ruk jaata hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Merge sort recursion never reaches the base case and causes a RecursionError  # variant 1",
+    "output": "What condition on the length of the array should stop the recursive splitting? Is that condition present and correctly written?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Quicksort has correct logic but runs extremely slowly on already-sorted input  # variant 3",
+    "output": "How does the choice of pivot affect partition sizes when the input is already sorted? What pivot choice could avoid this worst case?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Sorting Algorithms bug.",
+    "input": "Bubble sort does not fully sort the array after one pass  # variant 2",
+    "output": "Worst case mein bubble sort ko array ke through kitne complete passes chahiye hote hain? Kya aapka loop utni baar chalta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Selection sort swaps elements even when no swap is needed, causing wrong output  # variant 4",
+    "output": "After finding the minimum element in the unsorted part, what condition should you check before performing the swap?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Insertion sort produces a partially sorted array with one element out of place  # variant 2",
+    "output": "When shifting elements to make room for the key, does your inner loop shift enough elements, or does it stop one step too early?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Sorting Algorithms bug.",
+    "input": "Merge sort recursion never reaches the base case and causes a RecursionError  # variant 2",
+    "output": "Array ki length par kaunsi condition recursive splitting ko rokni chahiye? Kya wo condition present hai aur sahi likhi gayi hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Quicksort has correct logic but runs extremely slowly on already-sorted input  # variant 4",
+    "output": "How does the choice of pivot affect partition sizes when the input is already sorted? What pivot choice could avoid this worst case?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Bubble sort does not fully sort the array after one pass  # variant 2",
+    "output": "How many complete passes through the array are needed in the worst case for bubble sort? Does your loop run that many times?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Selection sort swaps elements even when no swap is needed, causing wrong output  # variant 5",
+    "output": "After finding the minimum element in the unsorted part, what condition should you check before performing the swap?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Sorting Algorithms bug.",
+    "input": "Insertion sort produces a partially sorted array with one element out of place  # variant 2",
+    "output": "Key ke liye jagah banane ke liye elements shift karte waqt, kya inner loop kaafi elements shift karta hai ya ek step pehle hi ruk jaata hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Sorting Algorithms bug.",
+    "input": "Merge sort recursion never reaches the base case and causes a RecursionError  # variant 2",
+    "output": "What condition on the length of the array should stop the recursive splitting? Is that condition present and correctly written?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "RecursionError: maximum recursion depth exceeded in factorial function",
+    "output": "What stopping condition (base case) should you add for when n reaches 1 or 0?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Recursion bug.",
+    "input": "Recursive Fibonacci function takes extremely long for n=40",
+    "output": "Poore recursion tree mein `fib(2)` kitni baar dobara calculate hota hai? Same subproblem baar baar solve karne se bachne ka kaunsa tarika hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Recursive function returns None instead of the expected accumulated value",
+    "output": "Does every recursive call in your function actually return a value, or does one branch fall through without a return statement?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Mutual recursion between two functions never terminates",
+    "output": "Do both functions share a common condition that eventually becomes false? At what point should the chain of calls stop?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Recursion bug.",
+    "input": "RecursionError: maximum recursion depth exceeded in factorial function",
+    "output": "Zero ya ek tak pahunchne par function ko rukna chahiye - aapne kaunsa base case add kiya hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Recursive Fibonacci function takes extremely long for n=40",
+    "output": "How many times is `fib(2)` recomputed across the whole recursion tree? What technique could avoid solving the same subproblem repeatedly?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Recursive function returns None instead of the expected accumulated value  # variant 1",
+    "output": "Does every recursive call in your function actually return a value, or does one branch fall through without a return statement?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Mutual recursion between two functions never terminates  # variant 1",
+    "output": "Do both functions share a common condition that eventually becomes false? At what point should the chain of calls stop?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Recursion bug.",
+    "input": "RecursionError: maximum recursion depth exceeded in factorial function  # variant 1",
+    "output": "Zero ya ek tak pahunchne par function ko rukna chahiye - aapne kaunsa base case add kiya hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Recursive Fibonacci function takes extremely long for n=40  # variant 1",
+    "output": "How many times is `fib(2)` recomputed across the whole recursion tree? What technique could avoid solving the same subproblem repeatedly?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Recursive function returns None instead of the expected accumulated value  # variant 2",
+    "output": "Does every recursive call in your function actually return a value, or does one branch fall through without a return statement?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Recursion bug.",
+    "input": "Mutual recursion between two functions never terminates",
+    "output": "Kya dono functions ki ek common condition hai jo aakhir mein false ho jaati hai? Calls ki chain kis point par rukni chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "RecursionError: maximum recursion depth exceeded in factorial function  # variant 1",
+    "output": "What stopping condition (base case) should you add for when n reaches 1 or 0?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Recursive Fibonacci function takes extremely long for n=40  # variant 2",
+    "output": "How many times is `fib(2)` recomputed across the whole recursion tree? What technique could avoid solving the same subproblem repeatedly?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Recursion bug.",
+    "input": "Recursive function returns None instead of the expected accumulated value",
+    "output": "Kya aapke function ki har recursive call value return karti hai, ya koi branch bina return statement ke reh jaati hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Mutual recursion between two functions never terminates  # variant 2",
+    "output": "Do both functions share a common condition that eventually becomes false? At what point should the chain of calls stop?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "RecursionError: maximum recursion depth exceeded in factorial function  # variant 2",
+    "output": "What stopping condition (base case) should you add for when n reaches 1 or 0?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Recursive Fibonacci function takes extremely long for n=40  # variant 3",
+    "output": "How many times is `fib(2)` recomputed across the whole recursion tree? What technique could avoid solving the same subproblem repeatedly?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Recursion bug.",
+    "input": "Recursive function returns None instead of the expected accumulated value  # variant 1",
+    "output": "Kya aapke function ki har recursive call value return karti hai, ya koi branch bina return statement ke reh jaati hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Mutual recursion between two functions never terminates  # variant 3",
+    "output": "Do both functions share a common condition that eventually becomes false? At what point should the chain of calls stop?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "RecursionError: maximum recursion depth exceeded in factorial function  # variant 3",
+    "output": "What stopping condition (base case) should you add for when n reaches 1 or 0?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Recursion bug.",
+    "input": "Recursive Fibonacci function takes extremely long for n=40  # variant 1",
+    "output": "Poore recursion tree mein `fib(2)` kitni baar dobara calculate hota hai? Same subproblem baar baar solve karne se bachne ka kaunsa tarika hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Recursive function returns None instead of the expected accumulated value  # variant 3",
+    "output": "Does every recursive call in your function actually return a value, or does one branch fall through without a return statement?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Mutual recursion between two functions never terminates  # variant 4",
+    "output": "Do both functions share a common condition that eventually becomes false? At what point should the chain of calls stop?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Recursion bug.",
+    "input": "RecursionError: maximum recursion depth exceeded in factorial function  # variant 2",
+    "output": "Zero ya ek tak pahunchne par function ko rukna chahiye - aapne kaunsa base case add kiya hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Recursive Fibonacci function takes extremely long for n=40  # variant 4",
+    "output": "How many times is `fib(2)` recomputed across the whole recursion tree? What technique could avoid solving the same subproblem repeatedly?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Recursive function returns None instead of the expected accumulated value  # variant 4",
+    "output": "Does every recursive call in your function actually return a value, or does one branch fall through without a return statement?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Recursion bug.",
+    "input": "Mutual recursion between two functions never terminates  # variant 5",
+    "output": "Do both functions share a common condition that eventually becomes false? At what point should the chain of calls stop?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Recursion bug.",
+    "input": "RecursionError: maximum recursion depth exceeded in factorial function  # variant 3",
+    "output": "Zero ya ek tak pahunchne par function ko rukna chahiye - aapne kaunsa base case add kiya hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Naive recursive solution for 0/1 Knapsack times out on larger inputs",
+    "output": "Are the same (index, remaining capacity) subproblems being solved more than once? What data structure could store results you've already computed?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Memoized function still recomputes results because the cache key is wrong",
+    "output": "What combination of parameters uniquely identifies each subproblem? Does your cache key include all of them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Dynamic Programming bug.",
+    "input": "Bottom-up DP table gives an IndexError when accessing dp[i-1] at i=0",
+    "output": "Main loop shuru hone se pehle, DP table ki base case row ya column kya represent karni chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Longest Common Subsequence function returns the wrong length for two strings",
+    "output": "When characters at the current positions match, how should the result build on the subproblem where both indices are reduced by one?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Naive recursive solution for 0/1 Knapsack times out on larger inputs  # variant 1",
+    "output": "Are the same (index, remaining capacity) subproblems being solved more than once? What data structure could store results you've already computed?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Dynamic Programming bug.",
+    "input": "Memoized function still recomputes results because the cache key is wrong",
+    "output": "Kaunse parameters ka combination har subproblem ko uniquely identify karta hai? Kya aapki cache key un sab ko include karti hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Bottom-up DP table gives an IndexError when accessing dp[i-1] at i=0",
+    "output": "What should the base case row or column of your DP table represent before the main loop starts filling it in?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Longest Common Subsequence function returns the wrong length for two strings  # variant 1",
+    "output": "When characters at the current positions match, how should the result build on the subproblem where both indices are reduced by one?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Naive recursive solution for 0/1 Knapsack times out on larger inputs  # variant 2",
+    "output": "Are the same (index, remaining capacity) subproblems being solved more than once? What data structure could store results you've already computed?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Dynamic Programming bug.",
+    "input": "Memoized function still recomputes results because the cache key is wrong  # variant 1",
+    "output": "Kaunse parameters ka combination har subproblem ko uniquely identify karta hai? Kya aapki cache key un sab ko include karti hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Bottom-up DP table gives an IndexError when accessing dp[i-1] at i=0  # variant 1",
+    "output": "What should the base case row or column of your DP table represent before the main loop starts filling it in?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Longest Common Subsequence function returns the wrong length for two strings  # variant 2",
+    "output": "When characters at the current positions match, how should the result build on the subproblem where both indices are reduced by one?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Dynamic Programming bug.",
+    "input": "Naive recursive solution for 0/1 Knapsack times out on larger inputs",
+    "output": "Kya same (index, remaining capacity) subproblems baar baar solve ho rahe hain? Pehle se calculate kiye results store karne ke liye kaunsa data structure use ho sakta hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Memoized function still recomputes results because the cache key is wrong  # variant 1",
+    "output": "What combination of parameters uniquely identifies each subproblem? Does your cache key include all of them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Bottom-up DP table gives an IndexError when accessing dp[i-1] at i=0  # variant 2",
+    "output": "What should the base case row or column of your DP table represent before the main loop starts filling it in?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Dynamic Programming bug.",
+    "input": "Longest Common Subsequence function returns the wrong length for two strings",
+    "output": "Jab current positions ke characters match karte hain, result us subproblem par kaise build hona chahiye jahan dono indices ek-ek kam ho?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Naive recursive solution for 0/1 Knapsack times out on larger inputs  # variant 3",
+    "output": "Are the same (index, remaining capacity) subproblems being solved more than once? What data structure could store results you've already computed?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Memoized function still recomputes results because the cache key is wrong  # variant 2",
+    "output": "What combination of parameters uniquely identifies each subproblem? Does your cache key include all of them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Bottom-up DP table gives an IndexError when accessing dp[i-1] at i=0  # variant 3",
+    "output": "What should the base case row or column of your DP table represent before the main loop starts filling it in?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Dynamic Programming bug.",
+    "input": "Longest Common Subsequence function returns the wrong length for two strings  # variant 1",
+    "output": "Jab current positions ke characters match karte hain, result us subproblem par kaise build hona chahiye jahan dono indices ek-ek kam ho?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Naive recursive solution for 0/1 Knapsack times out on larger inputs  # variant 4",
+    "output": "Are the same (index, remaining capacity) subproblems being solved more than once? What data structure could store results you've already computed?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Memoized function still recomputes results because the cache key is wrong  # variant 3",
+    "output": "What combination of parameters uniquely identifies each subproblem? Does your cache key include all of them?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Dynamic Programming bug.",
+    "input": "Bottom-up DP table gives an IndexError when accessing dp[i-1] at i=0  # variant 1",
+    "output": "Main loop shuru hone se pehle, DP table ki base case row ya column kya represent karni chahiye?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Longest Common Subsequence function returns the wrong length for two strings  # variant 3",
+    "output": "When characters at the current positions match, how should the result build on the subproblem where both indices are reduced by one?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Naive recursive solution for 0/1 Knapsack times out on larger inputs  # variant 5",
+    "output": "Are the same (index, remaining capacity) subproblems being solved more than once? What data structure could store results you've already computed?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for a Dynamic Programming bug.",
+    "input": "Memoized function still recomputes results because the cache key is wrong  # variant 2",
+    "output": "Kaunse parameters ka combination har subproblem ko uniquely identify karta hai? Kya aapki cache key un sab ko include karti hai?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Bottom-up DP table gives an IndexError when accessing dp[i-1] at i=0  # variant 4",
+    "output": "What should the base case row or column of your DP table represent before the main loop starts filling it in?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Longest Common Subsequence function returns the wrong length for two strings  # variant 4",
+    "output": "When characters at the current positions match, how should the result build on the subproblem where both indices are reduced by one?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for a Dynamic Programming bug.",
+    "input": "Naive recursive solution for 0/1 Knapsack times out on larger inputs  # variant 6",
+    "output": "Are the same (index, remaining capacity) subproblems being solved more than once? What data structure could store results you've already computed?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an OOP bug.",
+    "input": "TypeError: __init__() missing 1 required positional argument: 'name'",
+    "output": "Class ka instance banate waqt dhyan do - jitne arguments aap pass kar rahe ho, kya wo `__init__` ke parameters se match karte hain?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "Subclass method does not override the parent class method as expected",
+    "output": "Does the method name and signature in the subclass exactly match the one in the parent class? What happens if there's a small typo?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "Changing one object's attribute unexpectedly changes another object's attribute too",
+    "output": "Was the attribute defined as a mutable default value shared at the class level, or created fresh inside `__init__` for each instance?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an OOP bug.",
+    "input": "AttributeError when calling a method on an object created from an abstract base class",
+    "output": "Kya abstract base class ko directly instantiate kiya ja sakta hai, ya aapko ek concrete subclass se object banana padega?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "super().__init__() call causes unexpected behavior in multiple inheritance",
+    "output": "In what order does Python resolve parent classes when a class inherits from more than one? How could you check that order?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "TypeError: __init__() missing 1 required positional argument: 'name'",
+    "output": "Look at how you're creating an instance of the class. Does the number of arguments you pass match the parameters defined in `__init__`?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an OOP bug.",
+    "input": "Subclass method does not override the parent class method as expected",
+    "output": "Kya subclass ke method ka naam parent class ke method se bilkul match karta hai? Agar chhoti si typo ho toh kya hoga?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "Changing one object's attribute unexpectedly changes another object's attribute too  # variant 1",
+    "output": "Was the attribute defined as a mutable default value shared at the class level, or created fresh inside `__init__` for each instance?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "AttributeError when calling a method on an object created from an abstract base class",
+    "output": "Can an abstract base class be instantiated directly, or must you create an object from a concrete subclass instead?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "super().__init__() call causes unexpected behavior in multiple inheritance  # variant 1",
+    "output": "In what order does Python resolve parent classes when a class inherits from more than one? How could you check that order?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an OOP bug.",
+    "input": "TypeError: __init__() missing 1 required positional argument: 'name'  # variant 1",
+    "output": "Class ka instance banate waqt dhyan do - jitne arguments aap pass kar rahe ho, kya wo `__init__` ke parameters se match karte hain?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "Subclass method does not override the parent class method as expected  # variant 1",
+    "output": "Does the method name and signature in the subclass exactly match the one in the parent class? What happens if there's a small typo?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "Changing one object's attribute unexpectedly changes another object's attribute too  # variant 2",
+    "output": "Was the attribute defined as a mutable default value shared at the class level, or created fresh inside `__init__` for each instance?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an OOP bug.",
+    "input": "AttributeError when calling a method on an object created from an abstract base class  # variant 1",
+    "output": "Kya abstract base class ko directly instantiate kiya ja sakta hai, ya aapko ek concrete subclass se object banana padega?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "super().__init__() call causes unexpected behavior in multiple inheritance  # variant 2",
+    "output": "In what order does Python resolve parent classes when a class inherits from more than one? How could you check that order?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "TypeError: __init__() missing 1 required positional argument: 'name'  # variant 1",
+    "output": "Look at how you're creating an instance of the class. Does the number of arguments you pass match the parameters defined in `__init__`?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an OOP bug.",
+    "input": "Subclass method does not override the parent class method as expected  # variant 1",
+    "output": "Kya subclass ke method ka naam parent class ke method se bilkul match karta hai? Agar chhoti si typo ho toh kya hoga?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "Changing one object's attribute unexpectedly changes another object's attribute too  # variant 3",
+    "output": "Was the attribute defined as a mutable default value shared at the class level, or created fresh inside `__init__` for each instance?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "AttributeError when calling a method on an object created from an abstract base class  # variant 1",
+    "output": "Can an abstract base class be instantiated directly, or must you create an object from a concrete subclass instead?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "super().__init__() call causes unexpected behavior in multiple inheritance  # variant 3",
+    "output": "In what order does Python resolve parent classes when a class inherits from more than one? How could you check that order?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an OOP bug.",
+    "input": "TypeError: __init__() missing 1 required positional argument: 'name'  # variant 2",
+    "output": "Class ka instance banate waqt dhyan do - jitne arguments aap pass kar rahe ho, kya wo `__init__` ke parameters se match karte hain?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "Subclass method does not override the parent class method as expected  # variant 2",
+    "output": "Does the method name and signature in the subclass exactly match the one in the parent class? What happens if there's a small typo?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "Changing one object's attribute unexpectedly changes another object's attribute too  # variant 4",
+    "output": "Was the attribute defined as a mutable default value shared at the class level, or created fresh inside `__init__` for each instance?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an OOP bug.",
+    "input": "AttributeError when calling a method on an object created from an abstract base class  # variant 2",
+    "output": "Kya abstract base class ko directly instantiate kiya ja sakta hai, ya aapko ek concrete subclass se object banana padega?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "super().__init__() call causes unexpected behavior in multiple inheritance  # variant 4",
+    "output": "In what order does Python resolve parent classes when a class inherits from more than one? How could you check that order?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "TypeError: __init__() missing 1 required positional argument: 'name'  # variant 2",
+    "output": "Look at how you're creating an instance of the class. Does the number of arguments you pass match the parameters defined in `__init__`?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in Hinglish for an OOP bug.",
+    "input": "Subclass method does not override the parent class method as expected  # variant 2",
+    "output": "Kya subclass ke method ka naam parent class ke method se bilkul match karta hai? Agar chhoti si typo ho toh kya hoga?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "Changing one object's attribute unexpectedly changes another object's attribute too  # variant 5",
+    "output": "Was the attribute defined as a mutable default value shared at the class level, or created fresh inside `__init__` for each instance?"
+  },
+  {
+    "instruction": "Provide a Socratic debug hint in English for an OOP bug.",
+    "input": "AttributeError when calling a method on an object created from an abstract base class  # variant 2",
+    "output": "Can an abstract base class be instantiated directly, or must you create an object from a concrete subclass instead?"
+  }
+]

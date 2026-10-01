@@ -1,0 +1,51 @@
+# Environment variables (SECURITY RISK - NEVER COMMIT)
+.env
+.env.local
+
+# Virtual Environment
+.venv/
+env/
+venv/
+
+# Python Cache & Compiled Files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ADK & Local Dev Logs
+.adk/
+*.log
+
+# IDE & OS Files
+.vscode/
+.idea/
+.DS_Store
+
+# AI models and large binary weights (crucial to avoid 100MB GitHub block)
+*.gguf
+*.bin
+*.pt
+*.onnx
+devsarthi_adapter_v2/
+llama.cpp/
+
+# Archives & Design dump folders
+*.zip
+*.tar.gz
+stitch_*/
+devsarthi-frontend/app/studio/stitch_*/
+
+# Screenshots and temp visual assets
+*.png
+*.jpg
+*.jpeg
+devsarthi-frontend/app/studio/*.png
+code.html
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
